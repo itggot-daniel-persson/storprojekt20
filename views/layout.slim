@@ -15,7 +15,7 @@ html lang="en"
             -else
                 a href="login" Login
                 a href="register" Register
-                - if session[:rank] > 0
+                - if session[:rank] == "admin"
                     a href="admin" Admin page
 
         ==yield
