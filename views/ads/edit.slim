@@ -1,0 +1,10 @@
+h1 My ads
+p = my_ads
+div class="wrapper"
+    -my_ads.each do |ad|
+        div class="container"
+            h3 = ad["name"] 
+            p = ad["description"]
+            h3 Price #{ad["price"]}
+            p Is your item bought? #{ad["bought"].capitalize}
+            p Location #{ad["location"]}

@@ -1,8 +1,14 @@
 h1 Current ads
-form action="search" method="get"
+form action="search" method="post"
     input type="text" name="search_value" placeholder="Search here!"
     input type="submit" value="Search"
-
-/ -results.each do |ad|
-    div class="container"
+div class="wrapper"
+    -if session[:search_results] != nil
+        -session[:search_results].each do |ad|
+            div class="container"
+                h3 = ad["name"] 
+                p = ad["description"]
+                h3 Price #{ad["price"]}
+                p Is your item bought? #{ad["bought"].capitalize}
+                p Location #{ad["location"]}
 
