@@ -5,7 +5,7 @@ form action="search" method="post"
 div class="wrapper"
     -if session[:search_results] != nil
         -session[:search_results].each do |ad|
-            div class="container"
+            a class="container" href="/ads/#{ad["ad_id"]}"
                 h3 = ad["name"] 
                 p = ad["description"]
                 h3 Price #{ad["price"]}

@@ -10,5 +10,5 @@ form action="create_ad" method="post"
     p Where are you located?
     input type="text" name="location"
     input type="submit" value="Publish"
-    - if session[:ad_creattion_error] != nil
+    - if session[:ad_creation_error] != nil
         p = session[:ad_creation_error]

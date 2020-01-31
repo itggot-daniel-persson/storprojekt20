@@ -13,6 +13,7 @@ html lang="en"
                 a href="/logout" Logout
                 a href="/ads/edit" My ads
                 a href="/ads/new" Create a new ad
+                a href="#" #{session[:user_id]} #{session[:username]}
             -else
                 a href="/login" Login
                 a href="/register" Register

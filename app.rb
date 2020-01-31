@@ -8,7 +8,18 @@ enable :sessions
 db = SQLite3::Database.new("db/database.db")
 db.results_as_hash = true
 
+def not_auth()
+    if session[:user_id] == nil
+        return true
+    else
+        return false
+    end
+end
+
 get('/') do 
+    # if session[:search_results].empty?
+    #     session[:search_results] = db.execute("SELECT * FROM Ads")
+    # end
     slim(:"ads/index")
 end
 
@@ -28,16 +39,16 @@ post("/register_new_user") do
     existing_phone = db.execute("SELECT phone FROM Users WHERE phone = ?", phone)
     p existing_email
     p existing_email.empty?
-    if existing_username.empty?
+    if !existing_username.empty?
         session[:registration_error] = "Username is taken"
         redirect("/register")
     elsif password != password_confirmation
         session[:registration_error] = "Password do not match"
         redirect("/register")
-    elsif existing_email.empty?
+    elsif !existing_email.empty?
         session[:registration_error] = "Email is taken"
         redirect("/register")
-    elsif existing_phone.empty?
+    elsif !existing_phone.empty?
         session[:registration_error] = "Phone is taken"
         redirect("/register")
     end
@@ -88,6 +99,9 @@ get("/logout") do
 end
 
 get('/ads/new') do 
+    if session[:user_id] == nil
+        redirect("/")
+    end
     slim(:"ads/new")
 end
 
@@ -106,6 +120,12 @@ post('/ads/create_ad') do
     if name.empty? || description.empty? || price.empty? || location.empty?
         session[:ad_creation_error] = "You missed to fill out a field"
         redirect('/ads/new')
+    elsif !(price.to_i.to_s == price)
+        session[:ad_creation_error] = "Please enter a valid price. Ex 399"
+        redirect('/ads/new')
+    elsif name.length >= 1000 || description.length >= 1000 || location.length >= 1000
+        session[:ad_creation_error] = "Whoa, stop there. I dont beleive your text is that long"
+        redirect('/ads/new')
     end
 
     db.execute("INSERT INTO Ads (name, description, price, discounted_price, location, user_id, bought) VALUES (?, ?, ?, ?, ?, ?, ?)",name, description, price, price, location,session[:user_id], "no")
@@ -118,4 +138,14 @@ post('/search') do
 
     session[:search_results] = db.execute("SELECT * FROM Ads WHERE name LIKE '%#{search_value}%'")
     redirect('/')
+end
+
+get('/ads/:ad_id') do
+    ad_id = params["ad_id"]
+    ad_data = db.execute("SELECT * FROM Ads WHERE ad_id = ?",ad_id)
+    slim(:"ads/show",locals:{ad_info:ad_data})
+end
+
+post('/ads/:ad_id/update') do
+
 end
