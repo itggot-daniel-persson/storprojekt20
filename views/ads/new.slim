@@ -1,6 +1,6 @@
 h1 Create a new ad
 img src=""
-form action="create_ad" method="post"
+form action="/ads/new" method="post"
     p Name your ad
     input type="text" name="name"
     p Describe your ad
@@ -9,6 +9,9 @@ form action="create_ad" method="post"
     input type="text" name="price"
     p Where are you located?
     input type="text" name="location"
+    p Do you want your ad public now?
+    <input type="checkbox" name="public" checked>
+    br
     input type="submit" value="Publish"
     - if session[:ad_creation_error] != nil
         p = session[:ad_creation_error]

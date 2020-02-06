@@ -11,12 +11,12 @@ html lang="en"
             a href="/" Home
             - if session[:user_id] != nil
                 a href="/logout" Logout
-                a href="/ads/edit" My ads
+                a href="/users/show/#{session[:user_id]}" My ads
                 a href="/ads/new" Create a new ad
                 a href="#" #{session[:user_id]} #{session[:username]}
             -else
-                a href="/login" Login
-                a href="/register" Register
+                a href="/users/" Login
+                a href="/users/new" Register
                 - if session[:rank] == "admin"
                     a href="/admin" Admin page
 

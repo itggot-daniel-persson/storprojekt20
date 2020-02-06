@@ -1,1 +1,7 @@
 1. Login bugg när username/password inte stämmer
+2. Bugg för ads som inte är public. De kan kommas in på genom route ex. /ads/19
+
+
+Lägga till
+1. Public/private ads
+2. Överstryket om discount price är lägre

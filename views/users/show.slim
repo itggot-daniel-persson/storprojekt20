@@ -1,0 +1,13 @@
+h1 My ads
+div class="wrapper"
+    -my_ads.each do |ad|
+        a class="container" href="/ads/#{ad["ad_id"]}"
+            h3 = ad["name"] 
+            p = ad["description"]
+            h3 Price #{ad["price"]}
+            p Is your item bought? #{ad["bought"].capitalize}
+            p Location #{ad["location"]}
+            -if ad["public"] == "on"
+                p Public? Yes
+            -else
+                p Public? No

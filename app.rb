@@ -8,11 +8,17 @@ enable :sessions
 db = SQLite3::Database.new("db/database.db")
 db.results_as_hash = true
 
-def not_auth()
-    if session[:user_id] == nil
-        return true
-    else
-        return false
+# def not_auth()
+#     if session[:user_id] == nil
+#         return true
+#     else
+#         return false
+#     end
+# end
+
+before do 
+    if session[:user_id] != nil 
+        redirect('/')
     end
 end
 
@@ -23,11 +29,11 @@ get('/') do
     slim(:"ads/index")
 end
 
-get('/register') do 
+get('/users/new') do 
     slim(:"users/new")
 end
 
-post("/register_new_user") do
+post("/users/new") do
     username = params[:username]
     password = params[:password]
     password_confirmation = params[:password_confirmation]
@@ -37,8 +43,7 @@ post("/register_new_user") do
     existing_username = db.execute("SELECT username FROM Users WHERE username = ?", username)
     existing_email = db.execute("SELECT email FROM Users WHERE email = ?", email)
     existing_phone = db.execute("SELECT phone FROM Users WHERE phone = ?", phone)
-    p existing_email
-    p existing_email.empty?
+
     if !existing_username.empty?
         session[:registration_error] = "Username is taken"
         redirect("/register")
@@ -60,11 +65,11 @@ post("/register_new_user") do
 end
 
 
-get('/login') do 
+get('/users/') do 
     slim(:"users/index")
 end
 
-post("/login") do
+post("/users/") do
     username = params[:username]
     password = params[:password]
     
@@ -72,14 +77,14 @@ post("/login") do
     
     if existing_username.empty?
         session[:login_error] = "Username or password wrong"
-        redirect("/login")
+        redirect("/users/")
     end
 
     password_for_user = db.execute("SELECT password_digest FROM users WHERE username = ?", username)[0]["password_digest"]
 
     if BCrypt::Password.new(password_for_user) != password
         session[:login_error] = "Username or password wrong"
-        redirect("/login")
+        redirect("/users/")
     end
 
     session[:user_id] = db.execute("SELECT user_id FROM users WHERE username = ?", username)[0]["user_id"]
@@ -99,23 +104,33 @@ get("/logout") do
 end
 
 get('/ads/new') do 
-    if session[:user_id] == nil
-        redirect("/")
-    end
+    # if session[:user_id] == nil
+    #     redirect("/")
+    # end
     slim(:"ads/new")
 end
 
-get('/ads/edit') do 
-    my_ads = db.execute("SELECT * FROM Ads WHERE user_id = ?",session[:user_id])
-    slim(:"ads/edit",locals:{my_ads: my_ads})
+get('/users/show/:user_id') do 
+
+    user_id = params[:user_id].to_i
+    p params[:user_id].to_i
+    p session[:user_id]
+
+    if user_id == session[:user_id]
+        my_ads = db.execute("SELECT * FROM Ads WHERE user_id = ?",user_id)
+    else
+        my_ads = db.execute("SELECT * FROM Ads WHERE user_id = ? AND public = ?",user_id, "on")
+    end
+    slim(:"users/show",locals:{my_ads: my_ads})
 end
 
 
-post('/ads/create_ad') do
+post('/ads/new') do
     name = params[:name]
     description = params[:desc]
     price = params[:price]
     location = params[:location]
+    public_status = params[:public]
 
     if name.empty? || description.empty? || price.empty? || location.empty?
         session[:ad_creation_error] = "You missed to fill out a field"
@@ -124,14 +139,17 @@ post('/ads/create_ad') do
         session[:ad_creation_error] = "Please enter a valid price. Ex 399"
         redirect('/ads/new')
     elsif name.length >= 1000 || description.length >= 1000 || location.length >= 1000
-        session[:ad_creation_error] = "Whoa, stop there. I dont beleive your text is that long"
+        session[:ad_creation_error] = "Whoa, stop there. I dont believe your text is that long"
         redirect('/ads/new')
     end
 
-    db.execute("INSERT INTO Ads (name, description, price, discounted_price, location, user_id, bought) VALUES (?, ?, ?, ?, ?, ?, ?)",name, description, price, price, location,session[:user_id], "no")
+    db.execute("INSERT INTO Ads (name, description, price, discounted_price, location, user_id, bought, public) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",name, description, price, price, location,session[:user_id], "no", public_status)
 
     redirect('/')
 end
+
+#input type file
+#
 
 post('/search') do
     search_value = params[:search_value]
