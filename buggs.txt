@@ -1,5 +1,6 @@
 1. Login bugg när username/password inte stämmer
 2. Bugg för ads som inte är public. De kan kommas in på genom route ex. /ads/19
+3. Fixa SQL injections i sökruta
 
 
 Lägga till

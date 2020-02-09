@@ -1,6 +1,11 @@
--if ad_info.empty?
+-if no_auth
+    p You dont have premission to do that
+-elsif ad_info.empty?
     p An ad with that id does not exist
 
--if session[:user_id] == ad_info[0]["user_id"]
+-elsif session[:user_id] == ad_info[0]["user_id"]
     a href="#" Edit ad
 p = ad_info
+
+div class="wrapper"
+    

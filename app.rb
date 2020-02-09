@@ -8,13 +8,13 @@ enable :sessions
 db = SQLite3::Database.new("db/database.db")
 db.results_as_hash = true
 
-# def not_auth()
-#     if session[:user_id] == nil
-#         return true
-#     else
-#         return false
-#     end
-# end
+def not_auth()
+    if session[:user_id] == nil
+        return true
+    else
+        return false
+    end
+end
 
 before do 
     if session[:user_id] != nil 
@@ -104,9 +104,9 @@ get("/logout") do
 end
 
 get('/ads/new') do 
-    # if session[:user_id] == nil
-    #     redirect("/")
-    # end
+    if not_auth()
+        redirect('/')
+    end
     slim(:"ads/new")
 end
 
@@ -148,20 +148,28 @@ post('/ads/new') do
     redirect('/')
 end
 
-#input type file
-#
 
 post('/search') do
-    search_value = params[:search_value]
+    session[:search_results_empty] = nil
 
-    session[:search_results] = db.execute("SELECT * FROM Ads WHERE name LIKE '%#{search_value}%'")
+    search_value = "%#{params[:search_value]}%"
+    
+    session[:search_results] = db.execute("SELECT * FROM Ads WHERE name LIKE ? AND public = ? ",search_value, "on")
+    if session[:search_results].empty?
+        session[:search_results_empty] = "No results. Try another word"
+    end
     redirect('/')
 end
 
 get('/ads/:ad_id') do
+    no_auth = false
     ad_id = params["ad_id"]
     ad_data = db.execute("SELECT * FROM Ads WHERE ad_id = ?",ad_id)
-    slim(:"ads/show",locals:{ad_info:ad_data})
+    if ad_data[0]["public"] == nil && ad_data[0]["user_id"] != session[:user_id]
+        no_auth = true
+        ad_data = nil
+    end
+    slim(:"ads/show",locals:{ad_info:ad_data, no_auth:no_auth})
 end
 
 post('/ads/:ad_id/update') do
