@@ -2,9 +2,13 @@
 html lang="en"
     head
         meta charset="UTF-8"/
-        meta name="viewport" content="width=device-width, initial-scale=1.0"/
-        meta http-equiv="X-UA-Compatible" content="ie=edge"/
-        link rel="stylesheet" href="/css/style.css"/
+        meta name="viewport" content="width=device-width, initial-scale=1.0"
+        meta http-equiv="X-UA-Compatible" content="ie=edge"
+        link rel="stylesheet" href="/css/style.css"
+        link rel="stylesheet" href="/js/chosen.min.css"
+        script type="text/javascript" scr="/js/jquery-3.4.1.min.js"
+        script type="text/javascript" scr="/js/chosen.jquery.min.js"
+        script type="text/javascript" src="/js/main.js"
         title Blockvett2
     body
         nav
@@ -13,7 +17,7 @@ html lang="en"
                 a href="/logout" Logout
                 a href="/users/show/#{session[:user_id]}" My ads
                 a href="/ads/new" Create a new ad
-                a href="#" #{session[:user_id]} #{session[:username]}
+                a href="#" Hello #{session[:username]}!
             -else
                 a href="/users/" Login
                 a href="/users/new" Register
@@ -21,3 +25,6 @@ html lang="en"
                     a href="/admin" Admin page
 
         ==yield
+
+
+        

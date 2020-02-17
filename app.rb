@@ -16,11 +16,11 @@ def not_auth()
     end
 end
 
-before do 
-    if session[:user_id] != nil 
-        redirect('/')
-    end
-end
+# before do 
+#     if session[:user_id] != nil 
+#         redirect('/')
+#     end
+# end
 
 get('/') do 
     # if session[:search_results].empty?
@@ -107,7 +107,9 @@ get('/ads/new') do
     if not_auth()
         redirect('/')
     end
-    slim(:"ads/new")
+    # Get categories
+    categories = db.execute("SELECT name FROM Categories")
+    slim(:"ads/new", locals:{categories: categories})
 end
 
 get('/users/show/:user_id') do 
@@ -164,12 +166,25 @@ end
 get('/ads/:ad_id') do
     no_auth = false
     ad_id = params["ad_id"]
-    ad_data = db.execute("SELECT * FROM Ads WHERE ad_id = ?",ad_id)
-    if ad_data[0]["public"] == nil && ad_data[0]["user_id"] != session[:user_id]
+    ad_data = db.execute("SELECT * FROM Ads WHERE ad_id = ?",ad_id)[0]
+    # Kanske göra om.
+    seller_data = db.execute("SELECT * FROM Users WHERE user_id = ?",ad_data["user_id"])[0]
+    seller_rating_raw = db.execute("SELECT rating FROM Reviews WHERE user_id = ?",ad_data["user_id"])
+
+    seller_rating_formatted = []
+    seller_rating_raw.each do |rating|
+        seller_rating_formatted << rating["rating"]
+    end
+    seller_rating = (seller_rating_formatted.reduce(:+)).to_f / seller_rating_formatted.size.to_f
+    p seller_rating_raw
+    p seller_rating
+
+    if ad_data["public"] == nil && ad_data["user_id"] != session[:user_id]
         no_auth = true
         ad_data = nil
     end
-    slim(:"ads/show",locals:{ad_info:ad_data, no_auth:no_auth})
+    # Kanske merga seller_data och seller_rating
+    slim(:"ads/show",locals:{ad_info:ad_data, seller_data:seller_data, seller_rating:seller_rating, no_auth:no_auth})
 end
 
 post('/ads/:ad_id/update') do

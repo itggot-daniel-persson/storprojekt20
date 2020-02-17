@@ -40,6 +40,26 @@ div.wrapper {
     padding-top: 120px;
 }
 
+div.show-page {
+    display: grid;
+    grid-template-columns: repeat( 6, 1fr);
+    grid-template-areas: ". ad ad ad user .";
+    grid-template-rows: 500px;
+    grid-gap: 10px;
+} 
+
+div.ad {
+    grid-area: ad;
+    background-color: blue;
+}
+div.user {
+    grid-area: user;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 a.container {
     border-radius: 2rem;
     /* padding: 15px; */
@@ -59,7 +79,7 @@ a.container > * {
     margin: 3px;
 }
 
-a.container img {
+a.container img, div.show-page img {
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
     margin: 0;
@@ -91,7 +111,6 @@ a.container img {
 }
 
 .searchButton {
-    color: white;
     float: right;
     width: 40px;
     height: 40px;
@@ -111,7 +130,7 @@ a.container img {
     outline:none;
     float:left;
     padding: 0;
-    color: white;
+    color: black;
     font-size: 16px;
     transition: 0.4s;
     line-height: 40px;

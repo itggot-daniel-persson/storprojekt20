@@ -13,7 +13,7 @@ div class="wrapper"
     -if session[:search_results] != nil
         -session[:search_results].each do |ad|
             a class="container" href="/ads/#{ad["ad_id"]}"
-                img src="img/png.png" alt=""
+                img src="/img/png.png" alt=""
                 h3 = ad["name"] 
                 p = ad["description"]
                 h3 Price #{ad["price"]}

@@ -12,6 +12,13 @@ form action="/ads/new" method="post"
     p Do you want your ad public now?
     <input type="checkbox" name="public" checked>
     br
+    <select name="category" id="mselect">
+        option value="Select category" Select category
+        -categories.each do |category|
+            option values="#{category["name"]}" = category["name"]
+
     input type="submit" value="Publish"
     - if session[:ad_creation_error] != nil
         p = session[:ad_creation_error]
+
+script type="text/javascript" src="/js/main.js"

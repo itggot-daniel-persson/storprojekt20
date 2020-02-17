@@ -3,9 +3,26 @@
 -elsif ad_info.empty?
     p An ad with that id does not exist
 
--elsif session[:user_id] == ad_info[0]["user_id"]
+-elsif session[:user_id] == ad_info["user_id"]
     a href="#" Edit ad
 p = ad_info
 
-div class="wrapper"
-    
+div class="show-page"
+    div class="ad"
+        img src="/img/png.png" alt=""
+        h2 = ad_info["name"]
+        p = ad_info["description"]
+        -if ad_info["discounted_price"] < ad_info["price"]
+            strike Old price #{ad_info["price"]}
+            p New price #{ad_info["discounted_price"]}
+        -else
+            p Price #{ad_info["price"]}
+
+    div class="user"
+        h3 Sellers name
+        p = seller_data["username"]
+        h3 Rating
+        -if !seller_rating.nan?
+            p #{seller_rating}/5.0
+        -else
+            p None
