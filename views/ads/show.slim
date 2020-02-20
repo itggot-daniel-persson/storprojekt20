@@ -1,28 +1,52 @@
+/ Kanske ta bort om jag hittar ett lättare sätt
+-premission = true
 -if no_auth
     p You dont have premission to do that
+    -premission = false
 -elsif ad_info.empty?
     p An ad with that id does not exist
+    -premission = false
 
 -elsif session[:user_id] == ad_info["user_id"]
     a href="#" Edit ad
-p = ad_info
+    form action="/ads/destory" method="post"
+        input type="hidden" name="ad_id" value="#{ad_info["ad_id"]}" 
+        button type="submit" Delete ad
 
-div class="show-page"
-    div class="ad"
-        img src="/img/png.png" alt=""
-        h2 = ad_info["name"]
-        p = ad_info["description"]
-        -if ad_info["discounted_price"] < ad_info["price"]
-            strike Old price #{ad_info["price"]}
-            p New price #{ad_info["discounted_price"]}
-        -else
-            p Price #{ad_info["price"]}
+/ p = ad_info
+/ -elsif nsdkjandajs
+-if premission
+    div class="show-page"
+        div class="ad"
+            img src="/img/png.png" alt=""
+            h2 = ad_info["name"]
+            p = ad_info["description"]
+            -if ad_info["discounted_price"] < ad_info["price"]
+                strike Old price #{ad_info["price"]}
+                p New price #{ad_info["discounted_price"]}
+            -else
+                p Price #{ad_info["price"]}
 
-    div class="user"
-        h3 Sellers name
-        p = seller_data["username"]
-        h3 Rating
-        -if !seller_rating.nan?
-            p #{seller_rating}/5.0
-        -else
-            p None
+        div class="user"
+            h3 Sellers name
+            p = seller_data["username"]
+            h3 Rating
+            -if !seller_rating.nan?
+                p #{seller_rating}/5.0
+            -else
+                p None
+            h3 Give seller a rating
+            -if session[:user_id] != nil && session[:user_id] != seller_data["user_id"]
+                form action="review" method="post"
+                    select name="rating"
+                        option value="0" 0
+                        option value="1" 1
+                        option value="2" 2
+                        option value="3" 3
+                        option value="4" 4
+                        option value="5" 5
+                    input type="hidden" name="ad_id" value="#{ad_info["ad_id"]}" 
+                    button type="submit" name="user_id" value="#{ad_info["user_id"]}" Submit
+            -else 
+                p You need to be logged in to do that
+

@@ -18,7 +18,7 @@ form action="/ads/new" method="post"
             option values="#{category["name"]}" = category["name"]
 
     input type="submit" value="Publish"
-    - if session[:ad_creation_error] != nil
-        p = session[:ad_creation_error]
+    - if session[:ad_creation_feedback] != nil
+        p = session[:ad_creation_feedback]
 
 script type="text/javascript" src="/js/main.js"

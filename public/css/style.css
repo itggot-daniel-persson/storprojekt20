@@ -46,15 +46,18 @@ div.show-page {
     grid-template-areas: ". ad ad ad user .";
     grid-template-rows: 500px;
     grid-gap: 10px;
+    padding-top: 20px;
 } 
 
 div.ad {
     grid-area: ad;
-    background-color: blue;
+    background-color: var(--inner-color);
+    border-radius: 2rem;
 }
 div.user {
     grid-area: user;
-    background-color: red;
+    background-color: var(--inner-color);
+    border-radius: 2rem;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -145,7 +148,7 @@ button.searchButton img {
 
 
 
-a.container, .searchBox, .searchBox:hover > .searchButton {
+a.container, .searchBox, .searchBox:hover > .searchButton, div.user, div.ad {
     box-shadow: 
     -5px -5px 5px 0 rgba(255, 255, 255, 0.527),
     5px 5px 5px 0 rgba(0, 0, 0, .09);
