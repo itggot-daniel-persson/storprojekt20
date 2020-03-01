@@ -23,8 +23,12 @@ before('/') do
 end
 
 get('/') do 
+    empty_result = nil
     search_results = search(params[:search_value])
-    slim(:"ads/index",locals:{search_results:search_results})
+    if search_results.empty?
+        empty_result = "No results. Try another word"
+    end
+    slim(:"ads/index",locals:{search_results:search_results,empty_result:empty_result})
 end
 
 get('/users/new') do 
@@ -138,19 +142,6 @@ post('/ads/new') do
     session[:ad_creation_feedback] = add_new_ad(name,description,price,location,session[:user_id],public_status,img_path)
 
     redirect('/ads/new')
-end
-
-
-post('/search') do
-    session[:search_results_empty] = nil
-    # FIX SESSION COOKIE SIZE LIMIT
-    session[:search_results] = search(params[:search_value])
-    p session[:search_results]
-    p 1
-    if session[:search_results].empty?
-        session[:search_results_empty] = "No results. Try another word"
-    end
-    redirect('/')
 end
 
 get('/ads/:ad_id') do

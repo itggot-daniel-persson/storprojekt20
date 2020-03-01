@@ -3,6 +3,9 @@ form action="/" method="get" class="searchBox"
     button class="searchButton" href="#"
         img src="img/search.svg" alt=""    
 
+-if empty_result != nil
+    p = empty_result
+
 div class="wrapper"
     -if search_results != nil
         -search_results.each do |ad|
