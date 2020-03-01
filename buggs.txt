@@ -6,3 +6,4 @@
 Lägga till
 1. Public/private ads
 2. Överstryket om discount price är lägre
+3. Bild validering server-side

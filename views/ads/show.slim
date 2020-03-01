@@ -18,7 +18,7 @@
 -if premission
     div class="show-page"
         div class="ad"
-            img src="/img/png.png" alt=""
+            img src="/img/ads_img/#{ad_info["image"]}" alt=""
             h2 = ad_info["name"]
             p = ad_info["description"]
             -if ad_info["discounted_price"] < ad_info["price"]
@@ -47,6 +47,10 @@
                         option value="5" 5
                     input type="hidden" name="ad_id" value="#{ad_info["ad_id"]}" 
                     button type="submit" name="user_id" value="#{ad_info["user_id"]}" Submit
-            -else 
+
+            -elsif session[:user_id] == nil
                 p You need to be logged in to do that
+
+            -elsif session[:user_id] == seller_data["user_id"]
+                p Don't review yourself :(
 

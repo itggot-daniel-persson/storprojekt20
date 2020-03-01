@@ -1,4 +1,5 @@
 require "sinatra"
+require "sinatra/reloader"
 require "slim"
 require "sqlite3"
 require "bcrypt"
@@ -22,10 +23,8 @@ before('/') do
 end
 
 get('/') do 
-    # if session[:search_results].empty?
-    #     session[:search_results] = db.execute("SELECT * FROM Ads")
-    # end
-    slim(:"ads/index")
+    search_results = search(params[:search_value])
+    slim(:"ads/index",locals:{search_results:search_results})
 end
 
 get('/users/new') do 
@@ -43,6 +42,7 @@ post("/users/new") do
     existing_email = get_from_db("email","Users","email",email)
     existing_phone = get_from_db("phone","Users","phone",phone)
 
+# Kanske flytta validering till model.rb
     if !existing_username.empty?
         session[:registration_error] = "Username is taken"
         redirect("/users/new")
@@ -113,10 +113,8 @@ get('/users/show/:user_id') do
     p session[:user_id]
 
     if user_id == session[:user_id]
-        #my_ads = db.execute("SELECT * FROM Ads WHERE user_id = ?",user_id)
         my_ads = get_from_db("*","Ads","user_id",user_id)
     else
-        #my_ads = db.execute("SELECT * FROM Ads WHERE user_id = ? AND public = ?",user_id, "on")
         my_ads = get_public_ads(user_id)
     end
     slim(:"users/show",locals:{my_ads: my_ads})
@@ -129,9 +127,15 @@ post('/ads/new') do
     price = params[:price]
     location = params[:location]
     public_status = params[:public] 
-    p session[:user_id]
-    session[:ad_creation_feedback] = add_new_ad(name,description,price,location,session[:user_id],public_status)
-    #db.execute("INSERT INTO Ads (name, description, price, discounted_price, location, user_id, bought, public) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",name, description, price, price, location,session[:user_id], "no", public_status)
+
+    ad_id = get_ad_id()
+    img_ext = File.extname(params["img"]["filename"])
+    img_path = "#{ad_id.to_s}#{img_ext}"
+    File.open('public/img/ads_img/' + ad_id.to_s + img_ext.to_s , "wb") do |f|
+        f.write(params['img']["tempfile"].read)
+    end
+
+    session[:ad_creation_feedback] = add_new_ad(name,description,price,location,session[:user_id],public_status,img_path)
 
     redirect('/ads/new')
 end
@@ -139,10 +143,10 @@ end
 
 post('/search') do
     session[:search_results_empty] = nil
-
-    search_value = "%#{params[:search_value]}%"
-    
-    session[:search_results] = db.execute("SELECT * FROM Ads WHERE name LIKE ? AND public = ? ",search_value, "on")
+    # FIX SESSION COOKIE SIZE LIMIT
+    session[:search_results] = search(params[:search_value])
+    p session[:search_results]
+    p 1
     if session[:search_results].empty?
         session[:search_results_empty] = "No results. Try another word"
     end
@@ -170,11 +174,9 @@ post('/ads/review') do
     rating = params[:rating]
     user_id = params[:user_id]
     ad_id = params[:ad_id]
-    #Kanske verifiera att personen är inloggad. Dock gör jag det innan.
-    columns = ["user_id","reviewer_id","rating"]
-
-    db.execute("INSERT INTO Reviews (user_id, reviewer_id, rating) VALUES (?,?,?)", user_id, session[:user_id], rating)
-    redirect('/')
+    reviewer_id = session[:user_id]
+    add_new_review(user_id,reviewer_id,rating)
+    redirect back
 end
 
 post('/ads/:ad_id/update') do

@@ -1,6 +1,8 @@
 h1 Create a new ad
 
-form action="/ads/new" method="post"
+form action="/ads/new" method="post" enctype="multipart/form-data"
+    p Attach a photo here
+    <input type="file" name="img" accept='image/*'>
     p Name your ad
     input type="text" name="name"
     p Describe your ad
