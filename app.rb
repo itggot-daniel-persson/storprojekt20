@@ -11,16 +11,29 @@ enable :sessions
 db = SQLite3::Database.new("db/database.db")
 db.results_as_hash = true
 
-# before do 
+before do 
 #     if session[:user_id] != nil 
 #         redirect('/')
 #     end
-# end
 
-before('/') do
-    session[:user_id] = 2
-    session[:username] = "Emrik"
+    if request.post?
+        if session[:last_action].nil?
+            session[:last_action] = Time.now
+        end
+        if ((session[:last_action] + 2) > Time.now())
+            sleep(1)
+        end
+        session[:last_action] = Time.now()
+        session[:ad_creation_feedback] = nil
+        session[:registration_error] = nil
+        session[:login_error] = nil
+    end
 end
+
+# before('/') do
+#     session[:user_id] = 2
+#     session[:username] = "Emrik"
+# end
 
 get('/') do 
     empty_result = nil
@@ -42,23 +55,17 @@ post("/users/new") do
     phone = params[:phone]
     email = params[:email]
 
+    session[:registration_error] = nil
+
     existing_username = get_from_db("username","Users","username",username)
     existing_email = get_from_db("email","Users","email",email)
     existing_phone = get_from_db("phone","Users","phone",phone)
 
-# Kanske flytta validering till model.rb
-    if !existing_username.empty?
-        session[:registration_error] = "Username is taken"
-        redirect("/users/new")
-    elsif password != password_confirmation
-        session[:registration_error] = "Password do not match"
-        redirect("/users/new")
-    elsif !existing_email.empty?
-        session[:registration_error] = "Email is taken"
-        redirect("/users/new")
-    elsif !existing_phone.empty?
-        session[:registration_error] = "Phone is taken"
-        redirect("/users/new")
+    validation_msg = registration_validation(existing_username,existing_email,existing_phone,username,password,password_confirmation,email,phone)
+    
+    if !validation_msg.nil?
+        session[:registration_error] = validation_msg
+        redirect('/users/new')
     end
     password_digest = BCrypt::Password.create(password)
     register_user(username,password_digest,"user",email,phone)
@@ -97,9 +104,9 @@ post("/users/") do
     redirect("/")
 end
 
-get("/logout") do 
+post("/logout") do 
     session.destroy
-    slim(:"ads/index")
+    redirect('/')
 end
 
 get('/ads/new') do 
@@ -113,17 +120,16 @@ end
 
 get('/users/show/:user_id') do 
     user_id = params[:user_id].to_i
-    p params[:user_id].to_i
-    p session[:user_id]
 
     if user_id == session[:user_id]
         my_ads = get_from_db("*","Ads","user_id",user_id)
     else
         my_ads = get_public_ads(user_id)
     end
-    slim(:"users/show",locals:{my_ads: my_ads})
-end
+    user = get_from_db("username","Users","user_id",user_id)[0]
 
+    slim(:"users/show",locals:{my_ads: my_ads,user: user})
+end
 
 post('/ads/new') do
     name = params[:name]
@@ -131,15 +137,22 @@ post('/ads/new') do
     price = params[:price]
     location = params[:location]
     public_status = params[:public] 
-
+    categories = params[:category]
+    p params
+    
     ad_id = get_ad_id()
     img_ext = File.extname(params["img"]["filename"])
+    if img_ext != ".png" && img_ext != ".jpg"
+        session[:ad_creation_feedback] = "That's not a valid file format"
+        redirect('/ads/new')
+    end
     img_path = "#{ad_id.to_s}#{img_ext}"
     File.open('public/img/ads_img/' + ad_id.to_s + img_ext.to_s , "wb") do |f|
         f.write(params['img']["tempfile"].read)
     end
-
+    
     session[:ad_creation_feedback] = add_new_ad(name,description,price,location,session[:user_id],public_status,img_path)
+    # new_ad_to_categories(ad_id,)
 
     redirect('/ads/new')
 end
@@ -148,17 +161,46 @@ get('/ads/:ad_id') do
     no_auth = false
     ad_id = params["ad_id"]
     ad_data = get_from_db("*","Ads","ad_id",ad_id)[0]
-    #ad_data = db.execute("SELECT * FROM Ads WHERE ad_id = ?",ad_id)[0]
+    if ad_data != nil
+        seller_data = get_from_db("*","Users","user_id",ad_data["user_id"])[0]
+        seller_rating = get_rating_of_user(ad_data["user_id"])
 
-    seller_data = get_from_db("*","Users","user_id",ad_data["user_id"])[0]
-    seller_rating = get_rating_of_user(ad_data["user_id"])
+        if ad_data["public"] == nil && ad_data["user_id"] != session[:user_id]
+            no_auth = true
+            ad_data = nil
+        end
+    end
+    # Kanske merga seller_data och seller_rating
+    session[:edit_ad] = ad_data
+    slim(:"ads/show",locals:{ad_info:ad_data, seller_data:seller_data, seller_rating:seller_rating, no_auth:no_auth})
+end
 
-    if ad_data["public"] == nil && ad_data["user_id"] != session[:user_id]
+get('/ads/:ad_id/edit') do
+    ad_data = session[:edit_ad]
+    no_auth = false
+    if ad_data["user_id"] != session[:user_id]
         no_auth = true
         ad_data = nil
     end
-    # Kanske merga seller_data och seller_rating
-    slim(:"ads/show",locals:{ad_info:ad_data, seller_data:seller_data, seller_rating:seller_rating, no_auth:no_auth})
+    slim(:"ads/edit",locals:{ad_info:ad_data,no_auth:no_auth})
+end
+
+post('/ads/update') do
+    ad_id = session[:edit_ad]["ad_id"]
+    if params[:old_img] != params[:img]
+        img_ext = File.extname(params["img"]["filename"])
+        if img_ext != ".png" && img_ext != ".jpg"
+            session[:edit_ad_feedback] = "That's not a valid file format"
+            redirect back
+        end
+        img_path = "#{ad_id.to_s}#{img_ext}"
+        File.open('public/img/ads_img/' + ad_id.to_s + img_ext.to_s , "wb") do |f|
+            f.write(params['img']["tempfile"].read)
+        end
+    end
+    update_ad()
+    session[:edit_ad] = nil
+    redirect back
 end
 
 post('/ads/review') do 
@@ -168,10 +210,6 @@ post('/ads/review') do
     reviewer_id = session[:user_id]
     add_new_review(user_id,reviewer_id,rating)
     redirect back
-end
-
-post('/ads/:ad_id/update') do
-
 end
 
 post('/ads/destory') do 

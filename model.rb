@@ -38,22 +38,25 @@ def register_user(username,password_digest,rank,email,phone)
     db.execute("INSERT INTO Users (username, password_digest, rank, email, phone) VALUES (?, ?, ?, ?, ?)", username, password_digest, rank, email, phone)
 end
 
-#Reg validation
-# def valid_email(email)
-#     if !email.empty?
-#         return false
-#     else
-#         return true
-#     end
-# end
-# def valid_phone(phone)
-#     if !phone.empty?
-#         return false
-#     else
-#         return true
-#     end
-# end
-#Reg end
+def registration_validation(existing_username,existing_email,existing_phone,username,password,password_confirmation,email,phone)
+    if !existing_username.empty?
+        return "Username is taken"
+    elsif !existing_email.empty?
+        return "Email is taken"
+    elsif !existing_phone.empty?
+        return "Phone is taken"
+    elsif (21 < username.length) || (username.length < 2)
+        return "Username needs to be between 3 and 20 characters. You have #{username.length} characters" 
+    elsif password.scan(/^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/).empty?
+        return "Your password needs to contain at least a lowercase letter, a uppercase, a digit and be 8 characters long"
+    elsif password != password_confirmation
+        return "Password do not match"
+    elsif phone.length != 10
+        return "Your phone is not 10 digits long"
+    elsif phone.scan(/\d/).empty?
+        return "You have inputted a invalid phone number"
+    end
+end
 
 def add_new_ad(name,description,price,location,user_id,public_status,img)
     if name.empty? || description.empty? || price.empty? || location.empty?
@@ -68,19 +71,24 @@ def add_new_ad(name,description,price,location,user_id,public_status,img)
     end
 end
 
+def new_ad_to_categories(ad_id,category_id)
+
+    db.execute("INSERT INTO Category_relation (ad_id, category_id) VALUES (?, ?)",ad_id,category_id)
+end
+
+def update_ad(ad_id,image,name,desc,price,disc_price)
+    db.execute("UPDATE Ads SET image = ?,name = ?,desc = ?,price = ? WHERE ad_id = ?",)
+end
+
 def search(search_value)
-    p search_value
     if search_value == ""
         results = get_from_db("*","Ads",nil,nil)
-        p results
     else
         search_string = "%#{search_value}%"
         results = db.execute("SELECT * FROM Ads WHERE name LIKE ? AND public = ? ",search_string, "on")
     end
     results.each do |ad|
-
         ad["seller"] = get_from_db("username","Users","user_id",ad["user_id"])[0]["username"]
-        
     end
     return results
 end

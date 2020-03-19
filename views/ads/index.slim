@@ -1,13 +1,13 @@
 form action="/" method="get" class="searchBox"
     input class="searchInput" type="text" name="search_value" placeholder="Search here!"
     button class="searchButton" href="#"
-        img src="img/search.svg" alt=""    
+        img src="img/search.svg" alt=""   
 
--if empty_result != nil
-    p = empty_result
+-if defined?(empty_result).nil?
+    p No results. Try another word
 
 div class="wrapper"
-    -if search_results != nil
+    -if defined?(search_results) && search_results != nil
         -search_results.each do |ad|
             a class="container" href="/ads/#{ad["ad_id"]}"
                 img src="/img/ads_img/#{ad["image"]}" alt=""

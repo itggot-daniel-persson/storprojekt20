@@ -1,6 +1,6 @@
 h1 Create a new ad
 
-form action="/ads/new" method="post" enctype="multipart/form-data"
+<form action="/ads/new" method="post" enctype="multipart/form-data">
     p Attach a photo here
     <input type="file" name="img" accept='image/*'>
     p Name your ad
@@ -14,7 +14,7 @@ form action="/ads/new" method="post" enctype="multipart/form-data"
     p Do you want your ad public now?
     <input type="checkbox" name="public" checked>
     br
-    <select name="category" id="mselect">
+    <select name="category" id="mselect" multiple>
         option value="Select category" Select category
         -categories.each do |category|
             option values="#{category["name"]}" = category["name"]

@@ -1,15 +1,15 @@
 h1 Register here
 form action="/users/new" method="post"
-    p Username
+    p Username (Must be between 3 and 20 letters)
     <input type="text" name="username" required>
-    p Password
+    p Password (Must contain uppercase and lowercase letter + a digit. And be at least 8 characters long)
     <input type="password" name="password" required>
-    p Confirm Password
+    p Confirm Password 
     <input type="password" name="password_confirmation" required>
-    p Phone
-    <input type="text" name="phone" required>
+    p Phone (10 digits)
+    <input type="text" name="phone" required placeholder="Ex. 0721111111">
     p Email
-    <input type="email" name="email" required>
+    <input type="email" name="email" required placeholder="Ex. block@gmail.com">
 
     input type="submit" value="Register"  
     - if session[:registration_error] != nil

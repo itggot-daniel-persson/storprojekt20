@@ -3,12 +3,14 @@
 -if no_auth
     p You dont have premission to do that
     -premission = false
--elsif ad_info.empty?
+-elsif ad_info.nil?
     p An ad with that id does not exist
     -premission = false
 
 -elsif session[:user_id] == ad_info["user_id"]
-    a href="#" Edit ad
+    form action="/ads/#{ad_info["ad_id"]}/edit" method="get"
+        button type="submit" Edit ad
+
     form action="/ads/destory" method="post"
         input type="hidden" name="ad_id" value="#{ad_info["ad_id"]}" 
         button type="submit" Delete ad

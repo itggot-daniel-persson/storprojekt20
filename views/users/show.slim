@@ -1,4 +1,8 @@
-h1 My ads
+-if !user.nil?
+    h1 #{user["username"]}s ads
+-else
+    h1 A user with that id does not exist
+
 div class="wrapper"
     -my_ads.each do |ad|
         a class="container" href="/ads/#{ad["ad_id"]}"

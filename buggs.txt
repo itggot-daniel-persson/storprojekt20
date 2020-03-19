@@ -1,9 +1,10 @@
 1. Login bugg när username/password inte stämmer
 2. Bugg för ads som inte är public. De kan kommas in på genom route ex. /ads/19
 3. Fixa SQL injections i sökruta
-
+4. Emrik kan ändra på hidden input
 
 Lägga till
 1. Public/private ads
 2. Överstryket om discount price är lägre
 3. Bild validering server-side
+4. Ge en review en gång

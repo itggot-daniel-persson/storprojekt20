@@ -14,7 +14,8 @@ html lang="en"
         nav
             a href="/" Home
             - if session[:user_id] != nil
-                a href="/logout" Logout
+                form action="/logout" method="post"
+                    input type="submit" value="Logout"
                 a href="/users/show/#{session[:user_id]}" My ads
                 a href="/ads/new" Create a new ad
                 a href="#" Hello #{session[:username]}!

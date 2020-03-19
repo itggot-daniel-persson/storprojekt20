@@ -1,0 +1,30 @@
+-premission = true
+-ad_info = session[:edit_ad]
+-p ad_info
+-if no_auth
+    p You dont have premission to do that
+    -premission = false
+-elsif ad_info.nil?
+    p An ad with that id does not exist
+    -premission = false
+
+-elsif session[:user_id] != ad_info["user_id"]
+    p You need to be ad owner to do that
+    -premission = false
+-else
+    div class="show-page"
+        div class="ad" id="editable"
+            form action="update" method="post"
+                img src="/img/ads_img/#{ad_info["image"]}" alt=""
+                <input type="file" name="img" accept='image/*'>
+                input type="hidden" name="old_img" value="#{ad_info["image"]}"
+                h3 Name of ad
+                input type="text" name="name" value="#{ad_info["name"]}"
+                p Description
+                input type="text" name="desc" value="#{ad_info["description"]}"
+                p Price
+                input type="text" name="price" value="#{ad_info["price"]}"
+                p Discounted price
+                input type="text" name="disc_price" value="#{ad_info["discounted_price"]}"
+                button type="submit" Update
+
