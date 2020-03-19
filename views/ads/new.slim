@@ -14,13 +14,23 @@ h1 Create a new ad
     p Do you want your ad public now?
     <input type="checkbox" name="public" checked>
     br
-    <select name="category" id="mselect" multiple>
-        option value="Select category" Select category
-        -categories.each do |category|
-            option values="#{category["name"]}" = category["name"]
+    br
+        select name="category1"
+            <option disabled selected> Select category 1
+            -categories.each do |category|
+                option value="#{category["category_id"]}"  #{category["name"]}
+                
+        select name="category2"
+            <option disabled selected> Select category 2
+            -categories.each do |category|
+                option value="#{category["category_id"]}"  #{category["name"]}
+
+        select name="category3"
+            <option disabled selected> Select category 3
+            -categories.each do |category|
+                option value="#{category["category_id"]}"  #{category["name"]}
+    br
 
     input type="submit" value="Publish"
     - if session[:ad_creation_feedback] != nil
         p = session[:ad_creation_feedback]
-
-script type="text/javascript" src="/js/main.js"

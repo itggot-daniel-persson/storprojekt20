@@ -72,8 +72,10 @@ def add_new_ad(name,description,price,location,user_id,public_status,img)
 end
 
 def new_ad_to_categories(ad_id,category_id)
-
-    db.execute("INSERT INTO Category_relation (ad_id, category_id) VALUES (?, ?)",ad_id,category_id)
+    category_id.each do |category_id|
+        p "Category: #{category_id}"
+        db.execute("INSERT INTO Category_relation (ad_id, category_id) VALUES (?, ?)",ad_id,category_id)
+    end
 end
 
 def update_ad(ad_id,image,name,desc,price,disc_price)

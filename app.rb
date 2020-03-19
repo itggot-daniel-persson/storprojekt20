@@ -24,6 +24,7 @@ before do
             sleep(1)
         end
         session[:last_action] = Time.now()
+        
         session[:ad_creation_feedback] = nil
         session[:registration_error] = nil
         session[:login_error] = nil
@@ -114,7 +115,7 @@ get('/ads/new') do
         redirect('/')
     end
     # Get categories
-    categories = get_from_db("name","Categories",nil,nil)
+    categories = get_from_db("*","Categories",nil,nil)
     slim(:"ads/new", locals:{categories: categories})
 end
 
@@ -137,22 +138,24 @@ post('/ads/new') do
     price = params[:price]
     location = params[:location]
     public_status = params[:public] 
-    categories = params[:category]
-    p params
-    
+    categories = [params[:category1],params[:category2],params[:category3]].uniq
+
     ad_id = get_ad_id()
-    img_ext = File.extname(params["img"]["filename"])
-    if img_ext != ".png" && img_ext != ".jpg"
-        session[:ad_creation_feedback] = "That's not a valid file format"
-        redirect('/ads/new')
+    if !(params["img"].nil?)
+        img_ext = File.extname(params["img"]["filename"])
+        if img_ext != ".png" && img_ext != ".jpg"
+            session[:ad_creation_feedback] = "That's not a valid file format"
+            redirect('/ads/new')
+        end
+        img_path = "#{ad_id.to_s}#{img_ext}"
+        File.open('public/img/ads_img/' + ad_id.to_s + img_ext.to_s , "wb") do |f|
+            f.write(params['img']["tempfile"].read)
+        end
+    else
+        img_path = nil
     end
-    img_path = "#{ad_id.to_s}#{img_ext}"
-    File.open('public/img/ads_img/' + ad_id.to_s + img_ext.to_s , "wb") do |f|
-        f.write(params['img']["tempfile"].read)
-    end
-    
     session[:ad_creation_feedback] = add_new_ad(name,description,price,location,session[:user_id],public_status,img_path)
-    # new_ad_to_categories(ad_id,)
+    new_ad_to_categories(ad_id,categories)
 
     redirect('/ads/new')
 end
