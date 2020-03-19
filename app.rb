@@ -30,10 +30,10 @@ before do
     end
 end
 
-# before('/') do
-#     session[:user_id] = 2
-#     session[:username] = "Emrik"
-# end
+before('/') do
+    session[:user_id] = 2
+    session[:username] = "Emrik"
+end
 
 get('/') do 
     empty_result = nil
