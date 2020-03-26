@@ -1,8 +1,4 @@
-# Inga sessions eller params
-# Skicka med som argument 
-
-
-
+# model.rb
 
 def db()
     db = SQLite3::Database.new("db/database.db")
@@ -79,7 +75,23 @@ def new_ad_to_categories(ad_id,category_id)
 end
 
 def update_ad(ad_id,image,name,desc,price,disc_price)
-    db.execute("UPDATE Ads SET image = ?,name = ?,desc = ?,price = ? WHERE ad_id = ?",)
+    db.execute("UPDATE Ads SET image = ?,name = ?,description = ?,price = ?,discounted_price = ? WHERE ad_id = ?",image,name,desc,price,disc_price,ad_id)
+end
+
+def delete_ad(ad_id,current_user)
+    #Is user ad owner?
+    owner_id = get_from_db("user_id","Ads","ad_id",ad_id)[0]["user_id"]
+    img_path = get_from_db("image","Ads","ad_id",ad_id)[0]["image"]
+    if current_user == owner_id
+        db.execute("DELETE FROM Ads WHERE ad_id = ?", ad_id)
+        db.execute("DELETE FROM Category_relation WHERE ad_id = ?",ad_id)
+        File.delete('public/img/ads_img/' + img_path) if File.exist?('public/img/ads_img/' + img_path)
+        p "success"
+    else
+        #Ad feedback for error
+        p "fail"
+    end
+
 end
 
 def search(search_value)
@@ -101,7 +113,10 @@ def get_ad_id()
 end
 
 def add_new_review(user_id,reviwer_id,rating)
-    db.execute("INSERT INTO Reviews (user_id, reviewer_id, rating) VALUES (?,?,?)", user_id, reviwer_id, rating)
+    if rating.between?(0, 5)
+        puts "Success"
+        db.execute("INSERT INTO Reviews (user_id, reviewer_id, rating) VALUES (?,?,?)", user_id, reviwer_id, rating)
+    end
 end
 
 def not_auth()

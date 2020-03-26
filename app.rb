@@ -5,6 +5,7 @@ require "sqlite3"
 require "bcrypt"
 require "byebug"
 require_relative 'model.rb'
+also_reload "./model.rb"
 
 enable :sessions
 
@@ -138,7 +139,7 @@ post('/ads/new') do
     price = params[:price]
     location = params[:location]
     public_status = params[:public] 
-    categories = [params[:category1],params[:category2],params[:category3]].uniq
+    categories = [params[:category1],params[:category2],params[:category3]].uniq.reject(&:nil?)
 
     ad_id = get_ad_id()
     if !(params["img"].nil?)
@@ -188,9 +189,12 @@ get('/ads/:ad_id/edit') do
     slim(:"ads/edit",locals:{ad_info:ad_data,no_auth:no_auth})
 end
 
-post('/ads/update') do
+post('/ads/:ad_id/update') do
     ad_id = session[:edit_ad]["ad_id"]
-    if params[:old_img] != params[:img]
+    img_path = params[:old_img]
+    p params[:old_img]
+    p params[:img].empty?
+    if (params[:old_img] != params[:img]) && !params[:img].empty?
         img_ext = File.extname(params["img"]["filename"])
         if img_ext != ".png" && img_ext != ".jpg"
             session[:edit_ad_feedback] = "That's not a valid file format"
@@ -201,32 +205,21 @@ post('/ads/update') do
             f.write(params['img']["tempfile"].read)
         end
     end
-    update_ad()
-    session[:edit_ad] = nil
-    redirect back
+    update_ad(ad_id,img_path,params[:name],params[:desc],params[:price],params[:disc_price])
+    redirect('/')
 end
 
 post('/ads/review') do 
-    rating = params[:rating]
-    user_id = params[:user_id]
-    ad_id = params[:ad_id]
+    rating = params[:rating].to_i
+    user_id = session[:edit_ad]["user_id"]
+    ad_id = session[:edit_ad]["ad_id"]
     reviewer_id = session[:user_id]
     add_new_review(user_id,reviewer_id,rating)
     redirect back
 end
 
 post('/ads/destory') do 
-    ad_id = params[:ad_id]
-    #Is user ad owner?
-    owner_id = get_from_db("user_id","Ads","ad_id",ad_id)[0]["user_id"]
-    #owner_id = db.execute("SELECT user_id FROM Ads WHERE ad_id = ?",ad_id)[0]["user_id"]
-
-    if session[:user_id] == owner_id
-        db.execute("DELETE FROM Ads WHERE ad_id = ?", ad_id)
-        p "success"
-    else
-        #Ad feedback for error
-        p "fail"
-    end
+    ad_id = session[:edit_ad]["ad_id"]
+    delete_ad(ad_id,session[:user_id])
     redirect('/')
 end
