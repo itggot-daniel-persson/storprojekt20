@@ -7,7 +7,7 @@
     p An ad with that id does not exist
     -premission = false
 
--elsif session[:user_id] == ad_info["user_id"]
+-elsif session[:user_id] == ad_info["user_id"] || session[:rank] == "admin"
     form action="/ads/#{ad_info["ad_id"]}/edit" method="get"
         button type="submit" Edit ad
 
@@ -27,7 +27,7 @@
                 p New price #{ad_info["discounted_price"]}
             -else
                 p Price #{ad_info["price"]}
-
+            p = "Location: #{ad_info["location"]}"
         div class="user"
             h3 Sellers name
             p = seller_data["username"]
@@ -37,7 +37,7 @@
             -else
                 p None
             h3 Give seller a rating
-            -if session[:user_id] != nil && session[:user_id] != seller_data["user_id"]
+            -if session[:user_id] != nil && session[:user_id] != seller_data["user_id"] && review_dup.empty?
                 form action="review" method="post"
                     select name="rating"
                         option value="0" 0
@@ -45,12 +45,13 @@
                         option value="2" 2
                         option value="3" 3
                         option value="4" 4
-                        option value="5" 5
+                        <option value="5" selected > 5
                     button type="submit" name="user_id" Submit
 
             -elsif session[:user_id] == nil
                 p You need to be logged in to do that
-
             -elsif session[:user_id] == seller_data["user_id"]
                 p Don't review yourself :(
+            -else 
+                P You already reviewed this user
 

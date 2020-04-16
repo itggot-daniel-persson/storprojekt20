@@ -50,29 +50,44 @@ div.wrapper {
     padding-top: 120px;
 }
 
+div.wrapper a {
+    position: relative;
+}
+
+a img#sold {
+    position: absolute;
+    object-fit: cover;
+    width: inherit;
+    display: flex;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 div.show-page {
     display: grid;
     grid-template-columns: repeat( 6, 1fr);
     grid-template-areas: ". ad ad ad user .";
-    grid-template-rows: 600px;
+    grid-template-rows: minmax(600px,auto) 300px;
     grid-gap: 10px;
     padding-top: 20px;
 } 
 
-div.ad {
-    grid-area: ad;
+div.show-page > * {
     background-color: var(--inner-color);
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
+    padding: 10px;
+}
+
+div.ad {
+    grid-area: ad;
 }
 div.user {
     grid-area: user;
-    background-color: var(--inner-color);
-    border-radius: 2rem;
-    display: flex;
     align-items: center;
-    flex-direction: column;
 }
 
 a.container {
@@ -109,7 +124,7 @@ a.container img {
 div.show-page img, div#editable img {
     padding-top: 15px;
     height: 60%;
-    width: 75%;
+    width: 90%;
     display: flex;
     align-self: center;
 }

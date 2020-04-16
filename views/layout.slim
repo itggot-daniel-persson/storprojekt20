@@ -19,11 +19,11 @@ html lang="en"
                 a href="/users/show/#{session[:user_id]}" My ads
                 a href="/ads/new" Create a new ad
                 a href="#" Hello #{session[:username]}!
+                -if session[:rank] == "admin"
+                    a href="/admin" Admin page
             -else
                 a href="/users/" Login
                 a href="/users/new" Register
-                - if session[:rank] == "admin"
-                    a href="/admin" Admin page
 
         ==yield
 

@@ -1,6 +1,5 @@
 -premission = true
 -ad_info = session[:edit_ad]
--p ad_info
 -if no_auth
     p You dont have premission to do that
     -premission = false
@@ -8,13 +7,13 @@
     p An ad with that id does not exist
     -premission = false
 
--elsif session[:user_id] != ad_info["user_id"]
+-elsif session[:user_id] != ad_info["user_id"] && session[:rank] != "admin"
     p You need to be ad owner to do that
     -premission = false
 -else
     div class="show-page"
         div class="ad" id="editable"
-            form action="update" method="post"
+            form action="update" method="post" enctype="multipart/form-data"
                 img src="/img/ads_img/#{ad_info["image"]}" alt=""
                 <input type="file" name="img" accept='image/*'>
                 input type="hidden" name="old_img" value="#{ad_info["image"]}"
@@ -26,5 +25,12 @@
                 input type="text" name="price" value="#{ad_info["price"]}"
                 p Discounted price
                 input type="text" name="disc_price" value="#{ad_info["discounted_price"]}"
+                p Do you want your ad public now?
+                -if ad_info["public"] == "on"
+                    <input type="checkbox" name="public" checked>
+                -else
+                    <input type="checkbox" name="public">
+                br
+                p = session[:edit_ad_feedback]
                 button type="submit" Update
 

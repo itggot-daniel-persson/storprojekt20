@@ -21,8 +21,8 @@ before do
         if session[:last_action].nil?
             session[:last_action] = Time.now
         end
-        if ((session[:last_action] + 2) > Time.now())
-            sleep(1)
+        if ((session[:last_action] + 5) > Time.now())
+            sleep(2)
         end
         session[:last_action] = Time.now()
         
@@ -32,10 +32,10 @@ before do
     end
 end
 
-before('/') do
-    session[:user_id] = 2
-    session[:username] = "Emrik"
-end
+# before('/') do
+#     session[:user_id] = 2
+#     session[:username] = "Emrik"
+# end
 
 get('/') do 
     empty_result = nil
@@ -143,8 +143,8 @@ post('/ads/new') do
 
     ad_id = get_ad_id()
     if !(params["img"].nil?)
-        img_ext = File.extname(params["img"]["filename"])
-        if img_ext != ".png" && img_ext != ".jpg"
+        img_ext = File.extname(params["img"]["filename"]).downcase
+        if img_ext != ".png" && img_ext != ".jpg" && img_ext != ".jpeg"
             session[:ad_creation_feedback] = "That's not a valid file format"
             redirect('/ads/new')
         end
@@ -155,9 +155,14 @@ post('/ads/new') do
     else
         img_path = nil
     end
-    session[:ad_creation_feedback] = add_new_ad(name,description,price,location,session[:user_id],public_status,img_path)
-    new_ad_to_categories(ad_id,categories)
-
+    
+    validation = validate_ad_items(name,description,price,price,location)
+    if validation.nil?
+        add_new_ad(name,description,price,location,session[:user_id],public_status,img_path)
+        new_ad_to_categories(ad_id,categories)
+    else
+        session[:ad_creation_feedback] = validation
+    end
     redirect('/ads/new')
 end
 
@@ -165,6 +170,7 @@ get('/ads/:ad_id') do
     no_auth = false
     ad_id = params["ad_id"]
     ad_data = get_from_db("*","Ads","ad_id",ad_id)[0]
+    review_dup = review_dup(session[:user_id],ad_data["user_id"])
     if ad_data != nil
         seller_data = get_from_db("*","Users","user_id",ad_data["user_id"])[0]
         seller_rating = get_rating_of_user(ad_data["user_id"])
@@ -176,13 +182,13 @@ get('/ads/:ad_id') do
     end
     # Kanske merga seller_data och seller_rating
     session[:edit_ad] = ad_data
-    slim(:"ads/show",locals:{ad_info:ad_data, seller_data:seller_data, seller_rating:seller_rating, no_auth:no_auth})
+    slim(:"ads/show",locals:{ad_info:ad_data, seller_data:seller_data, seller_rating:seller_rating, no_auth:no_auth, review_dup:review_dup})
 end
 
 get('/ads/:ad_id/edit') do
     ad_data = session[:edit_ad]
     no_auth = false
-    if ad_data["user_id"] != session[:user_id]
+    if ad_data["user_id"] != session[:user_id] && session[:rank] != "admin"
         no_auth = true
         ad_data = nil
     end
@@ -192,11 +198,10 @@ end
 post('/ads/:ad_id/update') do
     ad_id = session[:edit_ad]["ad_id"]
     img_path = params[:old_img]
-    p params[:old_img]
-    p params[:img].empty?
-    if (params[:old_img] != params[:img]) && !params[:img].empty?
-        img_ext = File.extname(params["img"]["filename"])
-        if img_ext != ".png" && img_ext != ".jpg"
+    
+    if (params[:old_img] != params[:img]) && !(params[:img].nil?)
+        img_ext = File.extname(params["img"]["filename"]).downcase
+        if img_ext != ".png" && img_ext != ".jpg" && img_ext != ".jpeg"
             session[:edit_ad_feedback] = "That's not a valid file format"
             redirect back
         end
@@ -205,7 +210,18 @@ post('/ads/:ad_id/update') do
             f.write(params['img']["tempfile"].read)
         end
     end
-    update_ad(ad_id,img_path,params[:name],params[:desc],params[:price],params[:disc_price])
+    validation = validate_ad_items(params[:name],params[:desc],params[:price],params[:disc_price],session[:edit_ad]["location"])
+    if validation.nil?
+        update_ad(ad_id,img_path,params[:name],params[:desc],params[:price],params[:disc_price])
+    else
+        session[:edit_ad_feedback] = validation
+    end
+    redirect back
+end
+
+post('/ads/destory') do 
+    ad_id = session[:edit_ad]["ad_id"]
+    delete_ad(ad_id,session[:user_id],session[:rank])
     redirect('/')
 end
 
@@ -218,8 +234,3 @@ post('/ads/review') do
     redirect back
 end
 
-post('/ads/destory') do 
-    ad_id = session[:edit_ad]["ad_id"]
-    delete_ad(ad_id,session[:user_id])
-    redirect('/')
-end

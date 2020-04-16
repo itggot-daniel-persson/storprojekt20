@@ -1,11 +1,26 @@
-# model.rb
 
+
+#
+# Connects to the database
+#
+# @return [<Type>] Returns the database as a hash
+#
 def db()
     db = SQLite3::Database.new("db/database.db")
     db.results_as_hash = true
     return db
 end
 
+#
+# Get different items from database depending on the arguments given
+#
+# @param [String] column , The column to be searched
+# @param [String] table , The table to be searched
+# @param [String] where , Optional argument if you want to retrieve SQL rows where a specific value matches
+# @param [String] value , The value to be searched
+#
+# @return [Hash] A hash with retrieved items from SQL database
+#
 def get_from_db(column, table, where, value)
     if where.nil? || value.nil?
         return db.execute("SELECT #{column} FROM #{table}")
@@ -14,10 +29,24 @@ def get_from_db(column, table, where, value)
     end
 end
 
+#
+# Get all the public ads from a user
+#
+# @param [Integer] user_id , Id of a user
+#
+# @return [Hash] A hash with all the public ads of a specific user.
+#
 def get_public_ads(user_id)
     return db.execute("SELECT * FROM Ads WHERE user_id = ? AND public = ?",user_id, "on")
 end
 
+#
+# Gets the rating of a user
+#
+# @param [Integer] user_id , The user id to calculate average reviews on a user
+#
+# @return [Float] A value from 0.0 to 5.0
+#
 def get_rating_of_user(user_id)
     seller_rating_raw = get_from_db("rating","Reviews","user_id",user_id)
 
@@ -54,22 +83,31 @@ def registration_validation(existing_username,existing_email,existing_phone,user
     end
 end
 
-def add_new_ad(name,description,price,location,user_id,public_status,img)
+def validate_ad_items(name,description,price,disc_price,location)
     if name.empty? || description.empty? || price.empty? || location.empty?
         return "You missed to fill out a field"
-    elsif !(price.to_i.to_s == price)
+    elsif !(price.to_i.to_s == price) || price.length > 10 || !(disc_price.to_i.to_s == disc_price) || disc_price.length > 10
         return"Please enter a valid price. Ex 399"
-    elsif name.length >= 1000 || description.length >= 1000 || location.length >= 1000
+    elsif name.length >= 500 || description.length >= 500 || location.length >= 20
         return "Whoa, stop there. I dont believe your text is that long"
     else
-        db.execute("INSERT INTO Ads (name, description, price, discounted_price, location, user_id, bought, public, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",name, description, price, price, location,user_id, "no", public_status, img)
-        return "Sucess! Your ad has been added"
+        return nil
     end
 end
 
+def add_new_ad(name,description,price,location,user_id,public_status,img)
+    db.execute("INSERT INTO Ads (name, description, price, discounted_price, location, user_id, bought, public, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",name, description, price, price, location,user_id, "no", public_status, img)
+    return "Sucess! Your ad has been added"
+end
+
+#
+# Ad new a to categories
+#
+# @param [Integer] ad_id of the ad that categories should be added to
+# @param [Integer] category_id The id of the category that's going to be connented with ad_id
+#
 def new_ad_to_categories(ad_id,category_id)
     category_id.each do |category_id|
-        p "Category: #{category_id}"
         db.execute("INSERT INTO Category_relation (ad_id, category_id) VALUES (?, ?)",ad_id,category_id)
     end
 end
@@ -78,11 +116,11 @@ def update_ad(ad_id,image,name,desc,price,disc_price)
     db.execute("UPDATE Ads SET image = ?,name = ?,description = ?,price = ?,discounted_price = ? WHERE ad_id = ?",image,name,desc,price,disc_price,ad_id)
 end
 
-def delete_ad(ad_id,current_user)
+def delete_ad(ad_id,current_user,rank)
     #Is user ad owner?
     owner_id = get_from_db("user_id","Ads","ad_id",ad_id)[0]["user_id"]
     img_path = get_from_db("image","Ads","ad_id",ad_id)[0]["image"]
-    if current_user == owner_id
+    if current_user == owner_id || rank == "admin"
         db.execute("DELETE FROM Ads WHERE ad_id = ?", ad_id)
         db.execute("DELETE FROM Category_relation WHERE ad_id = ?",ad_id)
         File.delete('public/img/ads_img/' + img_path) if File.exist?('public/img/ads_img/' + img_path)
@@ -112,10 +150,18 @@ def get_ad_id()
     return count
 end
 
-def add_new_review(user_id,reviwer_id,rating)
-    if rating.between?(0, 5)
-        puts "Success"
-        db.execute("INSERT INTO Reviews (user_id, reviewer_id, rating) VALUES (?,?,?)", user_id, reviwer_id, rating)
+def review_dup(reviewer_id,user_id)
+    return db.execute("SELECT user_id FROM Reviews WHERE reviewer_id = ? AND user_id = ?",reviewer_id,user_id)
+end
+
+def add_new_review(user_id,reviewer_id,rating)
+    dup_check = review_dup(reviewer_id,user_id)
+    #Fixa så error visas på slim
+    if dup_check.empty?
+        if rating.between?(0, 5)
+            puts "Success"
+            db.execute("INSERT INTO Reviews (user_id, reviewer_id, rating) VALUES (?,?,?)", user_id, reviewer_id, rating)
+        end
     end
 end
 
