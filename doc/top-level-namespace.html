@@ -73,6 +73,11 @@
   
   
   
+  <dl>
+      <dt>Includes:</dt>
+      <dd><span class='object_link'><a href="Model.html" title="Model (module)">Model</a></span></dd>
+  </dl>
+  
   
 
   
@@ -80,6 +85,16 @@
   
 </div>
 
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Model.html" title="Model (module)">Model</a></span>
+    
+  
+    
+  
+</p>
 
 
 
@@ -94,96 +109,6 @@
     </h2>
 
     <ul class="summary">
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="top-level-namespace.html#add_new_ad-instance_method" title="#add_new_ad (instance method)">#<strong>add_new_ad</strong>(name, description, price, location, user_id, public_status, img)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="top-level-namespace.html#add_new_review-instance_method" title="#add_new_review (instance method)">#<strong>add_new_review</strong>(user_id, reviewer_id, rating)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="top-level-namespace.html#db-instance_method" title="#db (instance method)">#<strong>db</strong>  &#x21d2; &lt;Type&gt; </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Connects to the database.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="top-level-namespace.html#delete_ad-instance_method" title="#delete_ad (instance method)">#<strong>delete_ad</strong>(ad_id, current_user, rank)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
       
         <li class="public ">
   <span class="summary_signature">
@@ -227,7 +152,9 @@ href=":username">session</a> = “Emrik” end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Displays a specific ad based on the ad_id provided in the path.</p>
+</div></span>
   
 </li>
 
@@ -271,7 +198,9 @@ href=":username">session</a> = “Emrik” end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Displays &#39;/ads/new&#39; page where a user can create ads.</p>
+</div></span>
   
 </li>
 
@@ -293,7 +222,9 @@ href=":username">session</a> = “Emrik” end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Displays login page.</p>
+</div></span>
   
 </li>
 
@@ -315,7 +246,9 @@ href=":username">session</a> = “Emrik” end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Shows registration page where you can create a new account.</p>
+</div></span>
   
 </li>
 
@@ -337,147 +270,9 @@ href=":username">session</a> = “Emrik” end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="top-level-namespace.html#get_ad_id-instance_method" title="#get_ad_id (instance method)">#<strong>get_ad_id</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="top-level-namespace.html#get_from_db-instance_method" title="#get_from_db (instance method)">#<strong>get_from_db</strong>(column, table, where, value)  &#x21d2; Hash </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
     <span class="summary_desc"><div class='inline'>
-<p>Get different items from database depending on the arguments given.</p>
+<p>Shows all ads of a specific user.</p>
 </div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="top-level-namespace.html#get_public_ads-instance_method" title="#get_public_ads (instance method)">#<strong>get_public_ads</strong>(user_id)  &#x21d2; Hash </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Get all the public ads from a user.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="top-level-namespace.html#get_rating_of_user-instance_method" title="#get_rating_of_user (instance method)">#<strong>get_rating_of_user</strong>(user_id)  &#x21d2; Float </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Gets the rating of a user.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="top-level-namespace.html#new_ad_to_categories-instance_method" title="#new_ad_to_categories (instance method)">#<strong>new_ad_to_categories</strong>(ad_id, category_id)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Ad new a to categories.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="top-level-namespace.html#not_auth-instance_method" title="#not_auth (instance method)">#<strong>not_auth</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -543,7 +338,10 @@ href=":username">session</a> = “Emrik” end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Receives form input from &#39;/ads/new&#39; and creates a new ad based on
+the variables.</p>
+</div></span>
   
 </li>
 
@@ -587,7 +385,9 @@ href=":username">session</a> = “Emrik” end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Logs a user out and destroys all session cookies.</p>
+</div></span>
   
 </li>
 
@@ -609,7 +409,10 @@ href=":username">session</a> = “Emrik” end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Takes input from &#39;/users/&#39; and logs a user in with that
+information.</p>
+</div></span>
   
 </li>
 
@@ -631,139 +434,10 @@ href=":username">session</a> = “Emrik” end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="top-level-namespace.html#register_user-instance_method" title="#register_user (instance method)">#<strong>register_user</strong>(username, password_digest, rank, email, phone)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="top-level-namespace.html#registration_validation-instance_method" title="#registration_validation (instance method)">#<strong>registration_validation</strong>(existing_username, existing_email, existing_phone, username, password, password_confirmation, email, phone)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="top-level-namespace.html#review_dup-instance_method" title="#review_dup (instance method)">#<strong>review_dup</strong>(reviewer_id, user_id)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="top-level-namespace.html#search-instance_method" title="#search (instance method)">#<strong>search</strong>(search_value)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="top-level-namespace.html#update_ad-instance_method" title="#update_ad (instance method)">#<strong>update_ad</strong>(ad_id, image, name, desc, price, disc_price)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="top-level-namespace.html#validate_ad_items-instance_method" title="#validate_ad_items (instance method)">#<strong>validate_ad_items</strong>(name, description, price, disc_price, location)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Takes form input from &#39;/users/new&#39; with user information and
+validates it, and then ads it to the database.</p>
+</div></span>
   
 </li>
 
@@ -772,208 +446,24 @@ href=":username">session</a> = “Emrik” end.</p>
   
 
 
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Model.html" title="Model (module)">Model</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Model.html#add_new_ad-instance_method" title="Model#add_new_ad (method)">#add_new_ad</a></span>, <span class='object_link'><a href="Model.html#add_new_review-instance_method" title="Model#add_new_review (method)">#add_new_review</a></span>, <span class='object_link'><a href="Model.html#db-instance_method" title="Model#db (method)">#db</a></span>, <span class='object_link'><a href="Model.html#delete_ad-instance_method" title="Model#delete_ad (method)">#delete_ad</a></span>, <span class='object_link'><a href="Model.html#get_ad_id-instance_method" title="Model#get_ad_id (method)">#get_ad_id</a></span>, <span class='object_link'><a href="Model.html#get_all_categories-instance_method" title="Model#get_all_categories (method)">#get_all_categories</a></span>, <span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">#get_from_db</a></span>, <span class='object_link'><a href="Model.html#get_public_ads-instance_method" title="Model#get_public_ads (method)">#get_public_ads</a></span>, <span class='object_link'><a href="Model.html#get_rating_of_user-instance_method" title="Model#get_rating_of_user (method)">#get_rating_of_user</a></span>, <span class='object_link'><a href="Model.html#new_ad_to_categories-instance_method" title="Model#new_ad_to_categories (method)">#new_ad_to_categories</a></span>, <span class='object_link'><a href="Model.html#not_auth-instance_method" title="Model#not_auth (method)">#not_auth</a></span>, <span class='object_link'><a href="Model.html#register_user-instance_method" title="Model#register_user (method)">#register_user</a></span>, <span class='object_link'><a href="Model.html#registration_validation-instance_method" title="Model#registration_validation (method)">#registration_validation</a></span>, <span class='object_link'><a href="Model.html#review_dup-instance_method" title="Model#review_dup (method)">#review_dup</a></span>, <span class='object_link'><a href="Model.html#search-instance_method" title="Model#search (method)">#search</a></span>, <span class='object_link'><a href="Model.html#update_ad-instance_method" title="Model#update_ad (method)">#update_ad</a></span>, <span class='object_link'><a href="Model.html#validate_ad_items-instance_method" title="Model#validate_ad_items (method)">#validate_ad_items</a></span></p>
+
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="add_new_ad-instance_method">
-  
-    #<strong>add_new_ad</strong>(name, description, price, location, user_id, public_status, img)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-98
-99
-100
-101</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 98</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_add_new_ad'>add_new_ad</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span><span class='id identifier rubyid_description'>description</span><span class='comma'>,</span><span class='id identifier rubyid_price'>price</span><span class='comma'>,</span><span class='id identifier rubyid_location'>location</span><span class='comma'>,</span><span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span><span class='id identifier rubyid_public_status'>public_status</span><span class='comma'>,</span><span class='id identifier rubyid_img'>img</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_db'><span class='object_link'><a href="#db-instance_method" title="#db (method)">db</a></span></span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INSERT INTO Ads (name, description, price, discounted_price, location, user_id, bought, public, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_price'>price</span><span class='comma'>,</span> <span class='id identifier rubyid_price'>price</span><span class='comma'>,</span> <span class='id identifier rubyid_location'>location</span><span class='comma'>,</span><span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>no</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_public_status'>public_status</span><span class='comma'>,</span> <span class='id identifier rubyid_img'>img</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Sucess! Your ad has been added</span><span class='tstring_end'>&quot;</span></span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="add_new_review-instance_method">
-  
-    #<strong>add_new_review</strong>(user_id, reviewer_id, rating)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 157</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_add_new_review'>add_new_review</span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span><span class='id identifier rubyid_reviewer_id'>reviewer_id</span><span class='comma'>,</span><span class='id identifier rubyid_rating'>rating</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_dup_check'>dup_check</span> <span class='op'>=</span> <span class='id identifier rubyid_review_dup'><span class='object_link'><a href="#review_dup-instance_method" title="#review_dup (method)">review_dup</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_reviewer_id'>reviewer_id</span><span class='comma'>,</span><span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
-    <span class='comment'>#Fixa så error visas på slim
-</span>    <span class='kw'>if</span> <span class='id identifier rubyid_dup_check'>dup_check</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-        <span class='kw'>if</span> <span class='id identifier rubyid_rating'>rating</span><span class='period'>.</span><span class='id identifier rubyid_between?'>between?</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>5</span><span class='rparen'>)</span>
-            <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Success</span><span class='tstring_end'>&quot;</span></span>
-            <span class='id identifier rubyid_db'><span class='object_link'><a href="#db-instance_method" title="#db (method)">db</a></span></span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INSERT INTO Reviews (user_id, reviewer_id, rating) VALUES (?,?,?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_reviewer_id'>reviewer_id</span><span class='comma'>,</span> <span class='id identifier rubyid_rating'>rating</span><span class='rparen'>)</span>
-        <span class='kw'>end</span>
-    <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="db-instance_method">
-  
-    #<strong>db</strong>  &#x21d2; <tt>&lt;Type&gt;</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Connects to the database</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>&lt;Type&gt;</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>Returns the database as a hash</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-8
-9
-10
-11
-12</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 8</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_db'>db</span><span class='lparen'>(</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>db/database.db</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_results_as_hash'>results_as_hash</span> <span class='op'>=</span> <span class='kw'>true</span>
-    <span class='kw'>return</span> <span class='id identifier rubyid_db'>db</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="delete_ad-instance_method">
-  
-    #<strong>delete_ad</strong>(ad_id, current_user, rank)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 119</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_delete_ad'>delete_ad</span><span class='lparen'>(</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='comma'>,</span><span class='id identifier rubyid_current_user'>current_user</span><span class='comma'>,</span><span class='id identifier rubyid_rank'>rank</span><span class='rparen'>)</span>
-    <span class='comment'>#Is user ad owner?
-</span>    <span class='id identifier rubyid_owner_id'>owner_id</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="#get_from_db-instance_method" title="#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ads</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ad_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_img_path'>img_path</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="#get_from_db-instance_method" title="#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>image</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ads</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ad_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>image</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_current_user'>current_user</span> <span class='op'>==</span> <span class='id identifier rubyid_owner_id'>owner_id</span> <span class='op'>||</span> <span class='id identifier rubyid_rank'>rank</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>admin</span><span class='tstring_end'>&quot;</span></span>
-        <span class='id identifier rubyid_db'><span class='object_link'><a href="#db-instance_method" title="#db (method)">db</a></span></span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DELETE FROM Ads WHERE ad_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_ad_id'>ad_id</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_db'><span class='object_link'><a href="#db-instance_method" title="#db (method)">db</a></span></span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DELETE FROM Category_relation WHERE ad_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='rparen'>)</span>
-        <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>public/img/ads_img/</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_img_path'>img_path</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>public/img/ads_img/</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_img_path'>img_path</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_p'>p</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>success</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>else</span>
-        <span class='comment'>#Ad feedback for error
-</span>        <span class='id identifier rubyid_p'>p</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>fail</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>end</span>
-
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="GET__-instance_method">
+  <h3 class="signature first" id="GET__-instance_method">
   
     #<strong>GET /</strong>  &#x21d2; <tt>Object</tt> 
   
@@ -1006,21 +496,21 @@ href=":username">session</a> = “Emrik” end.</p>
       <pre class="lines">
 
 
-40
 41
 42
 43
 44
 45
 46
-47</pre>
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 41</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> 
     <span class='id identifier rubyid_empty_result'>empty_result</span> <span class='op'>=</span> <span class='kw'>nil</span>
-    <span class='id identifier rubyid_search_results'>search_results</span> <span class='op'>=</span> <span class='id identifier rubyid_search'><span class='object_link'><a href="#search-instance_method" title="#search (method)">search</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:search_value</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_search_results'>search_results</span> <span class='op'>=</span> <span class='id identifier rubyid_search'><span class='object_link'><a href="Model.html#search-instance_method" title="Model#search (method)">search</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:search_value</span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_search_results'>search_results</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
         <span class='id identifier rubyid_empty_result'>empty_result</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No results. Try another word</span><span class='tstring_end'>&quot;</span></span>
     <span class='kw'>end</span>
@@ -1040,42 +530,74 @@ href=":username">session</a> = “Emrik” end.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Displays a specific ad based on the ad_id provided in the path</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'></span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186</pre>
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 237</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ads/:ad_id</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_no_auth'>no_auth</span> <span class='op'>=</span> <span class='kw'>false</span>
     <span class='id identifier rubyid_ad_id'>ad_id</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ad_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_ad_data'>ad_data</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="#get_from_db-instance_method" title="#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ads</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ad_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_review_dup'><span class='object_link'><a href="#review_dup-instance_method" title="#review_dup (method)">review_dup</a></span></span> <span class='op'>=</span> <span class='id identifier rubyid_review_dup'><span class='object_link'><a href="#review_dup-instance_method" title="#review_dup (method)">review_dup</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_ad_data'>ad_data</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_ad_data'>ad_data</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ads</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ad_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_category_data'>category_data</span> <span class='op'>=</span> <span class='id identifier rubyid_get_all_categories'><span class='object_link'><a href="Model.html#get_all_categories-instance_method" title="Model#get_all_categories (method)">get_all_categories</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_ad_data'>ad_data</span> <span class='op'>=</span> <span class='id identifier rubyid_ad_data'>ad_data</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='label'>categories:</span> <span class='id identifier rubyid_category_data'>category_data</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_review_dup'><span class='object_link'><a href="Model.html#review_dup-instance_method" title="Model#review_dup (method)">review_dup</a></span></span> <span class='op'>=</span> <span class='id identifier rubyid_review_dup'><span class='object_link'><a href="Model.html#review_dup-instance_method" title="Model#review_dup (method)">review_dup</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_ad_data'>ad_data</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_ad_data'>ad_data</span> <span class='op'>!=</span> <span class='kw'>nil</span>
-        <span class='id identifier rubyid_seller_data'>seller_data</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="#get_from_db-instance_method" title="#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_ad_data'>ad_data</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_seller_rating'>seller_rating</span> <span class='op'>=</span> <span class='id identifier rubyid_get_rating_of_user'><span class='object_link'><a href="#get_rating_of_user-instance_method" title="#get_rating_of_user (method)">get_rating_of_user</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_ad_data'>ad_data</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_seller_data'>seller_data</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_ad_data'>ad_data</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_seller_rating'>seller_rating</span> <span class='op'>=</span> <span class='id identifier rubyid_get_rating_of_user'><span class='object_link'><a href="Model.html#get_rating_of_user-instance_method" title="Model#get_rating_of_user (method)">get_rating_of_user</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_ad_data'>ad_data</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
 
         <span class='kw'>if</span> <span class='id identifier rubyid_ad_data'>ad_data</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>public</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>nil</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_ad_data'>ad_data</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span>
             <span class='id identifier rubyid_no_auth'>no_auth</span> <span class='op'>=</span> <span class='kw'>true</span>
@@ -1084,7 +606,7 @@ href=":username">session</a> = “Emrik” end.</p>
     <span class='kw'>end</span>
     <span class='comment'># Kanske merga seller_data och seller_rating
 </span>    <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:edit_ad</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_ad_data'>ad_data</span>
-    <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:&quot;ads/show&quot;</span><span class='comma'>,</span><span class='label'>locals:</span><span class='lbrace'>{</span><span class='label'>ad_info:</span><span class='id identifier rubyid_ad_data'>ad_data</span><span class='comma'>,</span> <span class='label'>seller_data:</span><span class='id identifier rubyid_seller_data'>seller_data</span><span class='comma'>,</span> <span class='label'>seller_rating:</span><span class='id identifier rubyid_seller_rating'>seller_rating</span><span class='comma'>,</span> <span class='label'>no_auth:</span><span class='id identifier rubyid_no_auth'>no_auth</span><span class='comma'>,</span> <span class='label'>review_dup:</span><span class='id identifier rubyid_review_dup'><span class='object_link'><a href="#review_dup-instance_method" title="#review_dup (method)">review_dup</a></span></span><span class='rbrace'>}</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:&quot;ads/show&quot;</span><span class='comma'>,</span><span class='label'>locals:</span><span class='lbrace'>{</span><span class='label'>ad_info:</span><span class='id identifier rubyid_ad_data'>ad_data</span><span class='comma'>,</span> <span class='label'>seller_data:</span><span class='id identifier rubyid_seller_data'>seller_data</span><span class='comma'>,</span> <span class='label'>seller_rating:</span><span class='id identifier rubyid_seller_rating'>seller_rating</span><span class='comma'>,</span> <span class='label'>no_auth:</span><span class='id identifier rubyid_no_auth'>no_auth</span><span class='comma'>,</span> <span class='label'>review_dup:</span><span class='id identifier rubyid_review_dup'><span class='object_link'><a href="Model.html#review_dup-instance_method" title="Model#review_dup (method)">review_dup</a></span></span><span class='rbrace'>}</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1106,18 +628,18 @@ href=":username">session</a> = “Emrik” end.</p>
       <pre class="lines">
 
 
-188
-189
-190
-191
-192
-193
-194
-195
-196</pre>
+258
+259
+260
+261
+262
+263
+264
+265
+266</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 188</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 258</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ads/:ad_id/edit</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_ad_data'>ad_data</span> <span class='op'>=</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:edit_ad</span><span class='rbracket'>]</span>
@@ -1142,30 +664,52 @@ href=":username">session</a> = “Emrik” end.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Displays &#39;/ads/new&#39; page where a user can create ads. But if
+you&#39;re not logged in it seds you back to the home page &#39;/&#39;  It
+also retrieve fresh categories from the database</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#not_auth-instance_method" title="Model#not_auth (method)">Model#not_auth</a></span></li>
+    
+      <li><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">Model#get_from_db</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-114
-115
-116
-117
-118
-119
-120
-121</pre>
+172
+173
+174
+175
+176
+177
+178</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 114</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 172</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ads/new</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> 
-    <span class='kw'>if</span> <span class='id identifier rubyid_not_auth'><span class='object_link'><a href="#not_auth-instance_method" title="#not_auth (method)">not_auth</a></span></span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_not_auth'><span class='object_link'><a href="Model.html#not_auth-instance_method" title="Model#not_auth (method)">not_auth</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
         <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
     <span class='kw'>end</span>
-    <span class='comment'># Get categories
-</span>    <span class='id identifier rubyid_categories'>categories</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="#get_from_db-instance_method" title="#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Categories</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='kw'>nil</span><span class='comma'>,</span><span class='kw'>nil</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_categories'>categories</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Categories</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='kw'>nil</span><span class='comma'>,</span><span class='kw'>nil</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:&quot;ads/new&quot;</span><span class='comma'>,</span> <span class='label'>locals:</span><span class='lbrace'>{</span><span class='label'>categories:</span> <span class='id identifier rubyid_categories'>categories</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1182,18 +726,31 @@ href=":username">session</a> = “Emrik” end.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Displays login page</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-80
-81
-82</pre>
+99
+100
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 99</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> 
     <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:&quot;users/index&quot;</span><span class='rparen'>)</span>
@@ -1212,18 +769,31 @@ href=":username">session</a> = “Emrik” end.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Shows registration page where you can create a new account.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-49
-50
-51</pre>
+53
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 53</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/new</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> 
     <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:&quot;users/new&quot;</span><span class='rparen'>)</span>
@@ -1242,508 +812,61 @@ href=":username">session</a> = “Emrik” end.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Shows all ads of a specific user</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">Model#get_from_db</a></span></li>
+    
+      <li><span class='object_link'><a href="Model.html#get_public_ads-instance_method" title="Model#get_public_ads (method)">Model#get_public_ads</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134</pre>
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 153</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/show/:user_id</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> 
     <span class='id identifier rubyid_user_id'>user_id</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
 
     <span class='kw'>if</span> <span class='id identifier rubyid_user_id'>user_id</span> <span class='op'>==</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_my_ads'>my_ads</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="#get_from_db-instance_method" title="#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ads</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_my_ads'>my_ads</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ads</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
     <span class='kw'>else</span>
-        <span class='id identifier rubyid_my_ads'>my_ads</span> <span class='op'>=</span> <span class='id identifier rubyid_get_public_ads'><span class='object_link'><a href="#get_public_ads-instance_method" title="#get_public_ads (method)">get_public_ads</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_my_ads'>my_ads</span> <span class='op'>=</span> <span class='id identifier rubyid_get_public_ads'><span class='object_link'><a href="Model.html#get_public_ads-instance_method" title="Model#get_public_ads (method)">get_public_ads</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
-    <span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="#get_from_db-instance_method" title="#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
 
     <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:&quot;users/show&quot;</span><span class='comma'>,</span><span class='label'>locals:</span><span class='lbrace'>{</span><span class='label'>my_ads:</span> <span class='id identifier rubyid_my_ads'>my_ads</span><span class='comma'>,</span><span class='label'>user:</span> <span class='id identifier rubyid_user'>user</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_ad_id-instance_method">
-  
-    #<strong>get_ad_id</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-148
-149
-150
-151</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 148</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_get_ad_id'>get_ad_id</span><span class='lparen'>(</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_count'>count</span> <span class='op'>=</span> <span class='id identifier rubyid_db'><span class='object_link'><a href="#db-instance_method" title="#db (method)">db</a></span></span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT seq FROM sqlite_sequence WHERE name = &#39;Ads&#39;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>seq</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='int'>1</span>
-    <span class='kw'>return</span> <span class='id identifier rubyid_count'>count</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_from_db-instance_method">
-  
-    #<strong>get_from_db</strong>(column, table, where, value)  &#x21d2; <tt>Hash</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Get different items from database depending on the arguments given</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>column</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>, The column to be searched</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>table</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>, The table to be searched</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>where</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>, Optional argument if you want to retrieve SQL rows where a specific value
-matches</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>value</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>, The value to be searched</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>A hash with retrieved items from SQL database</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-24
-25
-26
-27
-28
-29
-30</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 24</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_get_from_db'>get_from_db</span><span class='lparen'>(</span><span class='id identifier rubyid_column'>column</span><span class='comma'>,</span> <span class='id identifier rubyid_table'>table</span><span class='comma'>,</span> <span class='id identifier rubyid_where'>where</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_where'>where</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>||</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-        <span class='kw'>return</span> <span class='id identifier rubyid_db'><span class='object_link'><a href="#db-instance_method" title="#db (method)">db</a></span></span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_column'>column</span><span class='embexpr_end'>}</span><span class='tstring_content'> FROM </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_table'>table</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='kw'>else</span>
-        <span class='kw'>return</span> <span class='id identifier rubyid_db'><span class='object_link'><a href="#db-instance_method" title="#db (method)">db</a></span></span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_column'>column</span><span class='embexpr_end'>}</span><span class='tstring_content'> FROM </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_table'>table</span><span class='embexpr_end'>}</span><span class='tstring_content'> WHERE </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_where'>where</span><span class='embexpr_end'>}</span><span class='tstring_content'> = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_public_ads-instance_method">
-  
-    #<strong>get_public_ads</strong>(user_id)  &#x21d2; <tt>Hash</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Get all the public ads from a user</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>user_id</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>, Id of a user</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>A hash with all the public ads of a specific user.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-39
-40
-41</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 39</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_get_public_ads'>get_public_ads</span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='id identifier rubyid_db'><span class='object_link'><a href="#db-instance_method" title="#db (method)">db</a></span></span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM Ads WHERE user_id = ? AND public = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>on</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_rating_of_user-instance_method">
-  
-    #<strong>get_rating_of_user</strong>(user_id)  &#x21d2; <tt>Float</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Gets the rating of a user</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>user_id</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>, The user id to calculate average reviews on a user</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Float</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>A value from 0.0 to 5.0</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 50</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_get_rating_of_user'>get_rating_of_user</span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_seller_rating_raw'>seller_rating_raw</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="#get_from_db-instance_method" title="#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rating</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Reviews</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
-
-    <span class='id identifier rubyid_seller_rating_formatted'>seller_rating_formatted</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_seller_rating_raw'>seller_rating_raw</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rating'>rating</span><span class='op'>|</span>
-        <span class='id identifier rubyid_seller_rating_formatted'>seller_rating_formatted</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_rating'>rating</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rating</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-    <span class='kw'>end</span>
-
-    <span class='id identifier rubyid_seller_rating'>seller_rating</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='id identifier rubyid_seller_rating_formatted'>seller_rating_formatted</span><span class='period'>.</span><span class='id identifier rubyid_reduce'>reduce</span><span class='lparen'>(</span><span class='symbol'>:+</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='id identifier rubyid_seller_rating_formatted'>seller_rating_formatted</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
-    <span class='kw'>return</span> <span class='id identifier rubyid_seller_rating'>seller_rating</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="new_ad_to_categories-instance_method">
-  
-    #<strong>new_ad_to_categories</strong>(ad_id, category_id)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Ad new a to categories</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>ad_id</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>of the ad that categories should be added to</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>category_id</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The id of the category that&#39;s going to be connented with ad_id</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-109
-110
-111
-112
-113</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 109</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_new_ad_to_categories'>new_ad_to_categories</span><span class='lparen'>(</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='comma'>,</span><span class='id identifier rubyid_category_id'>category_id</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_category_id'>category_id</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_category_id'>category_id</span><span class='op'>|</span>
-        <span class='id identifier rubyid_db'><span class='object_link'><a href="#db-instance_method" title="#db (method)">db</a></span></span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INSERT INTO Category_relation (ad_id, category_id) VALUES (?, ?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='comma'>,</span><span class='id identifier rubyid_category_id'>category_id</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="not_auth-instance_method">
-  
-    #<strong>not_auth</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-168
-169
-170
-171
-172
-173
-174</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 168</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_not_auth'>not_auth</span><span class='lparen'>(</span><span class='rparen'>)</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>nil</span>
-        <span class='kw'>return</span> <span class='kw'>true</span>
-    <span class='kw'>else</span>
-        <span class='kw'>return</span> <span class='kw'>false</span>
-    <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1760,6 +883,270 @@ matches</p>
 
   
 </h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app.rb', line 268</span>
+
+<span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ads/:ad_id/update</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_ad_id'>ad_id</span> <span class='op'>=</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:edit_ad</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ad_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_img_path'>img_path</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:old_img</span><span class='rbracket'>]</span>
+    
+    <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:old_img</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:img</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:img</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_img_ext'>img_ext</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_extname'>extname</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>img</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>filename</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_img_ext'>img_ext</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.png</span><span class='tstring_end'>&quot;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_img_ext'>img_ext</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.jpg</span><span class='tstring_end'>&quot;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_img_ext'>img_ext</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.jpeg</span><span class='tstring_end'>&quot;</span></span>
+            <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:edit_ad_feedback</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>That&#39;s not a valid file format</span><span class='tstring_end'>&quot;</span></span>
+            <span class='id identifier rubyid_redirect'>redirect</span> <span class='id identifier rubyid_back'>back</span>
+        <span class='kw'>end</span>
+        <span class='id identifier rubyid_img_path'>img_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_img_ext'>img_ext</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+        <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>public/img/ads_img/</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_ad_id'>ad_id</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='id identifier rubyid_img_ext'>img_ext</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wb</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span>
+            <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>img</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tempfile</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='rparen'>)</span>
+        <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_validation'>validation</span> <span class='op'>=</span> <span class='id identifier rubyid_validate_ad_items'><span class='object_link'><a href="Model.html#validate_ad_items-instance_method" title="Model#validate_ad_items (method)">validate_ad_items</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:desc</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:price</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:disc_price</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:edit_ad</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>location</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_validation'>validation</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='id identifier rubyid_update_ad'><span class='object_link'><a href="Model.html#update_ad-instance_method" title="Model#update_ad (method)">update_ad</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='comma'>,</span><span class='id identifier rubyid_img_path'>img_path</span><span class='comma'>,</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:desc</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:price</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:disc_price</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+        <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:edit_ad_feedback</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_validation'>validation</span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_redirect'>redirect</span> <span class='id identifier rubyid_back'>back</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="POST__ads_destory-instance_method">
+  
+    #<strong>POST /ads/destory</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+292
+293
+294
+295
+296</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app.rb', line 292</span>
+
+<span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ads/destory</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> 
+    <span class='id identifier rubyid_ad_id'>ad_id</span> <span class='op'>=</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:edit_ad</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ad_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_delete_ad'><span class='object_link'><a href="Model.html#delete_ad-instance_method" title="Model#delete_ad (method)">delete_ad</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='comma'>,</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:rank</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="POST__ads_new-instance_method">
+  
+    #<strong>POST /ads/new</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Receives form input from &#39;/ads/new&#39; and creates a new ad based on
+the variables. It also verifies that you upload a image file. Otherwise is
+returns error message “That&#39;s not a valid file format”</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Name of the ad</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>description</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Description of ad</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>price</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Price of ad</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>location</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Location of the seller</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>public</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>If the ad should be public or private</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>category1</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Category 1</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>category2</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Category 2</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>category3</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Category 3</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#get_ad_id-instance_method" title="Model#get_ad_id (method)">Model#get_ad_id</a></span></li>
+    
+      <li><span class='object_link'><a href="Model.html#validate_ad_items-instance_method" title="Model#validate_ad_items (method)">Model#validate_ad_items</a></span></li>
+    
+      <li><span class='object_link'><a href="Model.html#add_new_ad-instance_method" title="Model#add_new_ad (method)">Model#add_new_ad</a></span></li>
+    
+      <li><span class='object_link'><a href="Model.html#new_ad_to_categories-instance_method" title="Model#new_ad_to_categories (method)">Model#new_ad_to_categories</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -1787,123 +1174,20 @@ matches</p>
 217
 218
 219
-220</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 198</span>
-
-<span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ads/:ad_id/update</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
-    <span class='id identifier rubyid_ad_id'>ad_id</span> <span class='op'>=</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:edit_ad</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ad_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_img_path'>img_path</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:old_img</span><span class='rbracket'>]</span>
-    
-    <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:old_img</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:img</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:img</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_img_ext'>img_ext</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_extname'>extname</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>img</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>filename</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span>
-        <span class='kw'>if</span> <span class='id identifier rubyid_img_ext'>img_ext</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.png</span><span class='tstring_end'>&quot;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_img_ext'>img_ext</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.jpg</span><span class='tstring_end'>&quot;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_img_ext'>img_ext</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.jpeg</span><span class='tstring_end'>&quot;</span></span>
-            <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:edit_ad_feedback</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>That&#39;s not a valid file format</span><span class='tstring_end'>&quot;</span></span>
-            <span class='id identifier rubyid_redirect'>redirect</span> <span class='id identifier rubyid_back'>back</span>
-        <span class='kw'>end</span>
-        <span class='id identifier rubyid_img_path'>img_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_img_ext'>img_ext</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-        <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>public/img/ads_img/</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_ad_id'>ad_id</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='id identifier rubyid_img_ext'>img_ext</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wb</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span>
-            <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>img</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tempfile</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='rparen'>)</span>
-        <span class='kw'>end</span>
-    <span class='kw'>end</span>
-    <span class='id identifier rubyid_validation'>validation</span> <span class='op'>=</span> <span class='id identifier rubyid_validate_ad_items'><span class='object_link'><a href="#validate_ad_items-instance_method" title="#validate_ad_items (method)">validate_ad_items</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:desc</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:price</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:disc_price</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:edit_ad</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>location</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_validation'>validation</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-        <span class='id identifier rubyid_update_ad'><span class='object_link'><a href="#update_ad-instance_method" title="#update_ad (method)">update_ad</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='comma'>,</span><span class='id identifier rubyid_img_path'>img_path</span><span class='comma'>,</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:desc</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:price</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:disc_price</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='kw'>else</span>
-        <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:edit_ad_feedback</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_validation'>validation</span>
-    <span class='kw'>end</span>
-    <span class='id identifier rubyid_redirect'>redirect</span> <span class='id identifier rubyid_back'>back</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="POST__ads_destory-instance_method">
-  
-    #<strong>POST /ads/destory</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
+220
+221
 222
 223
 224
 225
-226</pre>
+226
+227
+228
+229
+230</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 222</span>
-
-<span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ads/destory</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> 
-    <span class='id identifier rubyid_ad_id'>ad_id</span> <span class='op'>=</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:edit_ad</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ad_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_delete_ad'><span class='object_link'><a href="#delete_ad-instance_method" title="#delete_ad (method)">delete_ad</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='comma'>,</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:rank</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="POST__ads_new-instance_method">
-  
-    #<strong>POST /ads/new</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 198</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ads/new</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span>
@@ -1912,12 +1196,14 @@ matches</p>
     <span class='id identifier rubyid_location'>location</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:location</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_public_status'>public_status</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:public</span><span class='rbracket'>]</span> 
     <span class='id identifier rubyid_categories'>categories</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:category1</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:category2</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:category3</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span><span class='period'>.</span><span class='id identifier rubyid_reject'>reject</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:nil?</span><span class='rparen'>)</span>
+    
+    <span class='id identifier rubyid_validation'>validation</span> <span class='op'>=</span> <span class='id identifier rubyid_validate_ad_items'><span class='object_link'><a href="Model.html#validate_ad_items-instance_method" title="Model#validate_ad_items (method)">validate_ad_items</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span><span class='id identifier rubyid_description'>description</span><span class='comma'>,</span><span class='id identifier rubyid_price'>price</span><span class='comma'>,</span><span class='id identifier rubyid_price'>price</span><span class='comma'>,</span><span class='id identifier rubyid_location'>location</span><span class='rparen'>)</span>
 
-    <span class='id identifier rubyid_ad_id'>ad_id</span> <span class='op'>=</span> <span class='id identifier rubyid_get_ad_id'><span class='object_link'><a href="#get_ad_id-instance_method" title="#get_ad_id (method)">get_ad_id</a></span></span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_ad_id'>ad_id</span> <span class='op'>=</span> <span class='id identifier rubyid_get_ad_id'><span class='object_link'><a href="Model.html#get_ad_id-instance_method" title="Model#get_ad_id (method)">get_ad_id</a></span></span><span class='lparen'>(</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='op'>!</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>img</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rparen'>)</span>
         <span class='id identifier rubyid_img_ext'>img_ext</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_extname'>extname</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>img</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>filename</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span>
         <span class='kw'>if</span> <span class='id identifier rubyid_img_ext'>img_ext</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.png</span><span class='tstring_end'>&quot;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_img_ext'>img_ext</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.jpg</span><span class='tstring_end'>&quot;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_img_ext'>img_ext</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.jpeg</span><span class='tstring_end'>&quot;</span></span>
-            <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:ad_creation_feedback</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>That&#39;s not a valid file format</span><span class='tstring_end'>&quot;</span></span>
+            <span class='id identifier rubyid_validation'>validation</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>That&#39;s not a valid file format</span><span class='tstring_end'>&quot;</span></span>
             <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ads/new</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
         <span class='kw'>end</span>
         <span class='id identifier rubyid_img_path'>img_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_img_ext'>img_ext</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -1928,10 +1214,9 @@ matches</p>
         <span class='id identifier rubyid_img_path'>img_path</span> <span class='op'>=</span> <span class='kw'>nil</span>
     <span class='kw'>end</span>
     
-    <span class='id identifier rubyid_validation'>validation</span> <span class='op'>=</span> <span class='id identifier rubyid_validate_ad_items'><span class='object_link'><a href="#validate_ad_items-instance_method" title="#validate_ad_items (method)">validate_ad_items</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span><span class='id identifier rubyid_description'>description</span><span class='comma'>,</span><span class='id identifier rubyid_price'>price</span><span class='comma'>,</span><span class='id identifier rubyid_price'>price</span><span class='comma'>,</span><span class='id identifier rubyid_location'>location</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_validation'>validation</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-        <span class='id identifier rubyid_add_new_ad'><span class='object_link'><a href="#add_new_ad-instance_method" title="#add_new_ad (method)">add_new_ad</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span><span class='id identifier rubyid_description'>description</span><span class='comma'>,</span><span class='id identifier rubyid_price'>price</span><span class='comma'>,</span><span class='id identifier rubyid_location'>location</span><span class='comma'>,</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_public_status'>public_status</span><span class='comma'>,</span><span class='id identifier rubyid_img_path'>img_path</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_new_ad_to_categories'><span class='object_link'><a href="#new_ad_to_categories-instance_method" title="#new_ad_to_categories (method)">new_ad_to_categories</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='comma'>,</span><span class='id identifier rubyid_categories'>categories</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_add_new_ad'><span class='object_link'><a href="Model.html#add_new_ad-instance_method" title="Model#add_new_ad (method)">add_new_ad</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span><span class='id identifier rubyid_description'>description</span><span class='comma'>,</span><span class='id identifier rubyid_price'>price</span><span class='comma'>,</span><span class='id identifier rubyid_location'>location</span><span class='comma'>,</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_public_status'>public_status</span><span class='comma'>,</span><span class='id identifier rubyid_img_path'>img_path</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_new_ad_to_categories'><span class='object_link'><a href="Model.html#new_ad_to_categories-instance_method" title="Model#new_ad_to_categories (method)">new_ad_to_categories</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='comma'>,</span><span class='id identifier rubyid_categories'>categories</span><span class='rparen'>)</span>
     <span class='kw'>else</span>
         <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:ad_creation_feedback</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_validation'>validation</span>
     <span class='kw'>end</span>
@@ -1957,24 +1242,24 @@ matches</p>
       <pre class="lines">
 
 
-228
-229
-230
-231
-232
-233
-234
-235</pre>
+298
+299
+300
+301
+302
+303
+304
+305</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 228</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 298</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ads/review</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> 
     <span class='id identifier rubyid_rating'>rating</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:rating</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
     <span class='id identifier rubyid_user_id'>user_id</span> <span class='op'>=</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:edit_ad</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_ad_id'>ad_id</span> <span class='op'>=</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:edit_ad</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ad_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_reviewer_id'>reviewer_id</span> <span class='op'>=</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_add_new_review'><span class='object_link'><a href="#add_new_review-instance_method" title="#add_new_review (method)">add_new_review</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span><span class='id identifier rubyid_reviewer_id'>reviewer_id</span><span class='comma'>,</span><span class='id identifier rubyid_rating'>rating</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_add_new_review'><span class='object_link'><a href="Model.html#add_new_review-instance_method" title="Model#add_new_review (method)">add_new_review</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span><span class='id identifier rubyid_reviewer_id'>reviewer_id</span><span class='comma'>,</span><span class='id identifier rubyid_rating'>rating</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_redirect'>redirect</span> <span class='id identifier rubyid_back'>back</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1991,19 +1276,32 @@ matches</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Logs a user out and destroys all session cookies</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-109
-110
-111
-112</pre>
+140
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 140</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/logout</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> 
     <span class='id identifier rubyid_session'>session</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span>
@@ -2023,62 +1321,120 @@ matches</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Takes input from &#39;/users/&#39; and logs a user in with that
+information. First it checks if username is in database. Then it checks if
+the digested password is equal to the digested password in the database.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>username</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Users inputted username</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>password</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Users inputted password</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">Model#get_from_db</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107</pre>
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 112</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/users/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_username'>username</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_password'>password</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:password</span><span class='rbracket'>]</span>
     
-    <span class='id identifier rubyid_existing_username'>existing_username</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="#get_from_db-instance_method" title="#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_existing_username'>existing_username</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span>
     
     <span class='kw'>if</span> <span class='id identifier rubyid_existing_username'>existing_username</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
         <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:login_error</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Username or password wrong</span><span class='tstring_end'>&quot;</span></span>
         <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/users/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
     <span class='kw'>end</span>
 
-    <span class='id identifier rubyid_password_for_user'>password_for_user</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="#get_from_db-instance_method" title="#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>password_digest</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>password_digest</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_password_for_user'>password_for_user</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>password_digest</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>password_digest</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
 
     <span class='kw'>if</span> <span class='const'>BCrypt</span><span class='op'>::</span><span class='const'>Password</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_password_for_user'>password_for_user</span><span class='rparen'>)</span> <span class='op'>!=</span> <span class='id identifier rubyid_password'>password</span>
         <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:login_error</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Username or password wrong</span><span class='tstring_end'>&quot;</span></span>
         <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/users/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
     <span class='kw'>end</span>
 
-    <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="#get_from_db-instance_method" title="#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
 
     <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_username'>username</span>
-    <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:rank</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="#get_from_db-instance_method" title="#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rank</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rank</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:rank</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rank</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rank</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2095,120 +1451,121 @@ matches</p>
   
 
   
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 53</span>
-
-<span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/users/new</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
-    <span class='id identifier rubyid_username'>username</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_password'>password</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:password</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_password_confirmation'>password_confirmation</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:password_confirmation</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_phone'>phone</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:phone</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_email'>email</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:email</span><span class='rbracket'>]</span>
-
-    <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:registration_error</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>nil</span>
-
-    <span class='id identifier rubyid_existing_username'>existing_username</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="#get_from_db-instance_method" title="#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_existing_email'>existing_email</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="#get_from_db-instance_method" title="#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>email</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>email</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_email'>email</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_existing_phone'>existing_phone</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="#get_from_db-instance_method" title="#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>phone</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>phone</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_phone'>phone</span><span class='rparen'>)</span>
-
-    <span class='id identifier rubyid_validation_msg'>validation_msg</span> <span class='op'>=</span> <span class='id identifier rubyid_registration_validation'><span class='object_link'><a href="#registration_validation-instance_method" title="#registration_validation (method)">registration_validation</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_existing_username'>existing_username</span><span class='comma'>,</span><span class='id identifier rubyid_existing_email'>existing_email</span><span class='comma'>,</span><span class='id identifier rubyid_existing_phone'>existing_phone</span><span class='comma'>,</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span><span class='id identifier rubyid_password'>password</span><span class='comma'>,</span><span class='id identifier rubyid_password_confirmation'>password_confirmation</span><span class='comma'>,</span><span class='id identifier rubyid_email'>email</span><span class='comma'>,</span><span class='id identifier rubyid_phone'>phone</span><span class='rparen'>)</span>
+</h3><div class="docstring">
+  <div class="discussion">
     
-    <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_validation_msg'>validation_msg</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-        <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:registration_error</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_validation_msg'>validation_msg</span>
-        <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/new</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-    <span class='id identifier rubyid_password_digest'>password_digest</span> <span class='op'>=</span> <span class='const'>BCrypt</span><span class='op'>::</span><span class='const'>Password</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_register_user'><span class='object_link'><a href="#register_user-instance_method" title="#register_user (method)">register_user</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span><span class='id identifier rubyid_password_digest'>password_digest</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_email'>email</span><span class='comma'>,</span><span class='id identifier rubyid_phone'>phone</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_username'>username</span>
-    <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="#get_from_db-instance_method" title="#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
+<p>Takes form input from &#39;/users/new&#39; with user information and
+validates it, and then ads it to the database</p>
+
+
+  </div>
 </div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="register_user-instance_method">
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
-    #<strong>register_user</strong>(username, password_digest, rank, email, phone)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-62
-63
-64</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 62</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_register_user'>register_user</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span><span class='id identifier rubyid_password_digest'>password_digest</span><span class='comma'>,</span><span class='id identifier rubyid_rank'>rank</span><span class='comma'>,</span><span class='id identifier rubyid_email'>email</span><span class='comma'>,</span><span class='id identifier rubyid_phone'>phone</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_db'><span class='object_link'><a href="#db-instance_method" title="#db (method)">db</a></span></span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INSERT INTO Users (username, password_digest, rank, email, phone) VALUES (?, ?, ?, ?, ?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_password_digest'>password_digest</span><span class='comma'>,</span> <span class='id identifier rubyid_rank'>rank</span><span class='comma'>,</span> <span class='id identifier rubyid_email'>email</span><span class='comma'>,</span> <span class='id identifier rubyid_phone'>phone</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
+    <li>
+      
+        <span class='name'>username</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Users username</p>
 </div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>password</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Users password</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>password_confirmation</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Users password confirmation</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>phone</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Users phone number</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>email</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Users email address</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
     
-      <div class="method_details ">
-  <h3 class="signature " id="registration_validation-instance_method">
-  
-    #<strong>registration_validation</strong>(existing_username, existing_email, existing_phone, username, password, password_confirmation, email, phone)  &#x21d2; <tt>Object</tt> 
-  
+      <li><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">Model#get_from_db</a></span></li>
+    
+      <li><span class='object_link'><a href="Model.html#registration_validation-instance_method" title="Model#registration_validation (method)">Model#registration_validation</a></span></li>
+    
+      <li><span class='object_link'><a href="Model.html#register_user-instance_method" title="Model#register_user (method)">Model#register_user</a></span></li>
+    
+  </ul>
 
-  
 
-  
-</h3><table class="source_code">
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-66
-67
-68
-69
 70
 71
 72
@@ -2223,158 +1580,8 @@ matches</p>
 81
 82
 83
-84</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 66</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_registration_validation'>registration_validation</span><span class='lparen'>(</span><span class='id identifier rubyid_existing_username'>existing_username</span><span class='comma'>,</span><span class='id identifier rubyid_existing_email'>existing_email</span><span class='comma'>,</span><span class='id identifier rubyid_existing_phone'>existing_phone</span><span class='comma'>,</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span><span class='id identifier rubyid_password'>password</span><span class='comma'>,</span><span class='id identifier rubyid_password_confirmation'>password_confirmation</span><span class='comma'>,</span><span class='id identifier rubyid_email'>email</span><span class='comma'>,</span><span class='id identifier rubyid_phone'>phone</span><span class='rparen'>)</span>
-    <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_existing_username'>existing_username</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-        <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Username is taken</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>elsif</span> <span class='op'>!</span><span class='id identifier rubyid_existing_email'>existing_email</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-        <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Email is taken</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>elsif</span> <span class='op'>!</span><span class='id identifier rubyid_existing_phone'>existing_phone</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-        <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Phone is taken</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>elsif</span> <span class='lparen'>(</span><span class='int'>21</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_username'>username</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&lt;</span> <span class='int'>2</span><span class='rparen'>)</span>
-        <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Username needs to be between 3 and 20 characters. You have </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_username'>username</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='embexpr_end'>}</span><span class='tstring_content'> characters</span><span class='tstring_end'>&quot;</span></span> 
-    <span class='kw'>elsif</span> <span class='id identifier rubyid_password'>password</span><span class='period'>.</span><span class='id identifier rubyid_scan'>scan</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-        <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Your password needs to contain at least a lowercase letter, a uppercase, a digit and be 8 characters long</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>elsif</span> <span class='id identifier rubyid_password'>password</span> <span class='op'>!=</span> <span class='id identifier rubyid_password_confirmation'>password_confirmation</span>
-        <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Password do not match</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>elsif</span> <span class='id identifier rubyid_phone'>phone</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>!=</span> <span class='int'>10</span>
-        <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Your phone is not 10 digits long</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>elsif</span> <span class='id identifier rubyid_phone'>phone</span><span class='period'>.</span><span class='id identifier rubyid_scan'>scan</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\d</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-        <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>You have inputted a invalid phone number</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="review_dup-instance_method">
-  
-    #<strong>review_dup</strong>(reviewer_id, user_id)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-153
-154
-155</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 153</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_review_dup'>review_dup</span><span class='lparen'>(</span><span class='id identifier rubyid_reviewer_id'>reviewer_id</span><span class='comma'>,</span><span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='id identifier rubyid_db'><span class='object_link'><a href="#db-instance_method" title="#db (method)">db</a></span></span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT user_id FROM Reviews WHERE reviewer_id = ? AND user_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_reviewer_id'>reviewer_id</span><span class='comma'>,</span><span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="search-instance_method">
-  
-    #<strong>search</strong>(search_value)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 135</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_search'>search</span><span class='lparen'>(</span><span class='id identifier rubyid_search_value'>search_value</span><span class='rparen'>)</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_search_value'>search_value</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-        <span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="#get_from_db-instance_method" title="#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ads</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='kw'>nil</span><span class='comma'>,</span><span class='kw'>nil</span><span class='rparen'>)</span>
-    <span class='kw'>else</span>
-        <span class='id identifier rubyid_search_string'>search_string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_search_value'>search_value</span><span class='embexpr_end'>}</span><span class='tstring_content'>%</span><span class='tstring_end'>&quot;</span></span>
-        <span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_db'><span class='object_link'><a href="#db-instance_method" title="#db (method)">db</a></span></span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM Ads WHERE name LIKE ? AND public = ? </span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_search_string'>search_string</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>on</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-    <span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ad'>ad</span><span class='op'>|</span>
-        <span class='id identifier rubyid_ad'>ad</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>seller</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="#get_from_db-instance_method" title="#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_ad'>ad</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-    <span class='kw'>end</span>
-    <span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="update_ad-instance_method">
-  
-    #<strong>update_ad</strong>(ad_id, image, name, desc, price, disc_price)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-115
-116
-117</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 115</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_update_ad'>update_ad</span><span class='lparen'>(</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='comma'>,</span><span class='id identifier rubyid_image'>image</span><span class='comma'>,</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span><span class='id identifier rubyid_desc'>desc</span><span class='comma'>,</span><span class='id identifier rubyid_price'>price</span><span class='comma'>,</span><span class='id identifier rubyid_disc_price'>disc_price</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_db'><span class='object_link'><a href="#db-instance_method" title="#db (method)">db</a></span></span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>UPDATE Ads SET image = ?,name = ?,description = ?,price = ?,discounted_price = ? WHERE ad_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_image'>image</span><span class='comma'>,</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span><span class='id identifier rubyid_desc'>desc</span><span class='comma'>,</span><span class='id identifier rubyid_price'>price</span><span class='comma'>,</span><span class='id identifier rubyid_disc_price'>disc_price</span><span class='comma'>,</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="validate_ad_items-instance_method">
-  
-    #<strong>validate_ad_items</strong>(name, description, price, disc_price, location)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
+84
+85
 86
 87
 88
@@ -2383,23 +1590,35 @@ matches</p>
 91
 92
 93
-94
-95
-96</pre>
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 70</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_validate_ad_items'>validate_ad_items</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span><span class='id identifier rubyid_description'>description</span><span class='comma'>,</span><span class='id identifier rubyid_price'>price</span><span class='comma'>,</span><span class='id identifier rubyid_disc_price'>disc_price</span><span class='comma'>,</span><span class='id identifier rubyid_location'>location</span><span class='rparen'>)</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>||</span> <span class='id identifier rubyid_description'>description</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>||</span> <span class='id identifier rubyid_price'>price</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>||</span> <span class='id identifier rubyid_location'>location</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-        <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>You missed to fill out a field</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>elsif</span> <span class='op'>!</span><span class='lparen'>(</span><span class='id identifier rubyid_price'>price</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>==</span> <span class='id identifier rubyid_price'>price</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_price'>price</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&gt;</span> <span class='int'>10</span> <span class='op'>||</span> <span class='op'>!</span><span class='lparen'>(</span><span class='id identifier rubyid_disc_price'>disc_price</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>==</span> <span class='id identifier rubyid_disc_price'>disc_price</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_disc_price'>disc_price</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&gt;</span> <span class='int'>10</span>
-        <span class='kw'>return</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Please enter a valid price. Ex 399</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>elsif</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&gt;=</span> <span class='int'>500</span> <span class='op'>||</span> <span class='id identifier rubyid_description'>description</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&gt;=</span> <span class='int'>500</span> <span class='op'>||</span> <span class='id identifier rubyid_location'>location</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&gt;=</span> <span class='int'>20</span>
-        <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Whoa, stop there. I dont believe your text is that long</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>else</span>
-        <span class='kw'>return</span> <span class='kw'>nil</span>
+<span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/users/new</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_username'>username</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_password'>password</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:password</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_password_confirmation'>password_confirmation</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:password_confirmation</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_phone'>phone</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:phone</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_email'>email</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:email</span><span class='rbracket'>]</span>
+
+    <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:registration_error</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+    <span class='id identifier rubyid_existing_username'>existing_username</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_existing_email'>existing_email</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>email</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>email</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_email'>email</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_existing_phone'>existing_phone</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>phone</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>phone</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_phone'>phone</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_validation_msg'>validation_msg</span> <span class='op'>=</span> <span class='id identifier rubyid_registration_validation'><span class='object_link'><a href="Model.html#registration_validation-instance_method" title="Model#registration_validation (method)">registration_validation</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_existing_username'>existing_username</span><span class='comma'>,</span><span class='id identifier rubyid_existing_email'>existing_email</span><span class='comma'>,</span><span class='id identifier rubyid_existing_phone'>existing_phone</span><span class='comma'>,</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span><span class='id identifier rubyid_password'>password</span><span class='comma'>,</span><span class='id identifier rubyid_password_confirmation'>password_confirmation</span><span class='comma'>,</span><span class='id identifier rubyid_email'>email</span><span class='comma'>,</span><span class='id identifier rubyid_phone'>phone</span><span class='rparen'>)</span>
+    
+    <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_validation_msg'>validation_msg</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:registration_error</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_validation_msg'>validation_msg</span>
+        <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/new</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
     <span class='kw'>end</span>
+    <span class='id identifier rubyid_password_digest'>password_digest</span> <span class='op'>=</span> <span class='const'>BCrypt</span><span class='op'>::</span><span class='const'>Password</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_register_user'><span class='object_link'><a href="Model.html#register_user-instance_method" title="Model#register_user (method)">register_user</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span><span class='id identifier rubyid_password_digest'>password_digest</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_email'>email</span><span class='comma'>,</span><span class='id identifier rubyid_phone'>phone</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_username'>username</span>
+    <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2411,7 +1630,7 @@ matches</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 16 15:57:12 2020 by
+  Generated on Thu Apr 23 20:31:55 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.5.1).
 </div>

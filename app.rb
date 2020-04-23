@@ -6,6 +6,7 @@ require "bcrypt"
 require "byebug"
 require_relative 'model.rb'
 also_reload "./model.rb"
+include Model
 
 enable :sessions
 
@@ -46,10 +47,26 @@ get('/') do
     slim(:"ads/index",locals:{search_results:search_results,empty_result:empty_result})
 end
 
+# 
+# Shows registration page where you can create a new account. 
+# 
 get('/users/new') do 
     slim(:"users/new")
 end
 
+# 
+# Takes form input from '/users/new' with user information and validates it, and then ads it to the database
+# 
+# @param [String] username Users username
+# @param [String] password Users password
+# @param [String] password_confirmation Users password confirmation
+# @param [String] phone Users phone number
+# @param [String] email Users email address
+# 
+# @see Model#get_from_db
+# @see Model#registration_validation
+# @see Model#register_user
+# 
 post("/users/new") do
     username = params[:username]
     password = params[:password]
@@ -76,11 +93,22 @@ post("/users/new") do
     redirect("/")
 end
 
-
+# 
+# Displays login page
+# 
 get('/users/') do 
     slim(:"users/index")
 end
 
+#  
+# Takes input from '/users/' and logs a user in with that information.
+# First it checks if username is in database. Then it checks if the digested password is equal to the digested password in the database.
+# 
+# @param [String] username Users inputted username
+# @param [String] password Users inputted password
+# 
+# @see Model#get_from_db
+# 
 post("/users/") do
     username = params[:username]
     password = params[:password]
@@ -106,20 +134,22 @@ post("/users/") do
     redirect("/")
 end
 
+# 
+# Logs a user out and destroys all session cookies
+# 
 post("/logout") do 
     session.destroy
     redirect('/')
 end
 
-get('/ads/new') do 
-    if not_auth()
-        redirect('/')
-    end
-    # Get categories
-    categories = get_from_db("*","Categories",nil,nil)
-    slim(:"ads/new", locals:{categories: categories})
-end
-
+# 
+# Shows all ads of a specific user
+# 
+# @params [Integer] user_id User id to show profile of.
+# 
+# @see Model#get_from_db
+# @see Model#get_public_ads
+# 
 get('/users/show/:user_id') do 
     user_id = params[:user_id].to_i
 
@@ -133,6 +163,38 @@ get('/users/show/:user_id') do
     slim(:"users/show",locals:{my_ads: my_ads,user: user})
 end
 
+# 
+# Displays '/ads/new' page where a user can create ads. But if you're not logged in it seds you back to the home page '/' 
+# It also retrieve fresh categories from the database
+# 
+# @see Model#not_auth
+# @see Model#get_from_db
+get('/ads/new') do 
+    if not_auth(session[:user_id])
+        redirect('/')
+    end
+    categories = get_from_db("*","Categories",nil,nil)
+    slim(:"ads/new", locals:{categories: categories})
+end
+
+# 
+# Receives form input from '/ads/new' and creates a new ad based on the variables.
+# It also verifies that you upload a image file. Otherwise is returns error message "That's not a valid file format"
+# 
+# @param [String] name Name of the ad
+# @param [String] description Description of ad
+# @param [Integer] price Price of ad 
+# @param [String] location Location of the seller
+# @param [String] public If the ad should be public or private
+# @param [String] category1 Category 1
+# @param [String] category2 Category 2
+# @param [String] category3 Category 3
+# 
+# @see Model#get_ad_id
+# @see Model#validate_ad_items
+# @see Model#add_new_ad
+# @see Model#new_ad_to_categories
+# 
 post('/ads/new') do
     name = params[:name]
     description = params[:desc]
@@ -140,12 +202,14 @@ post('/ads/new') do
     location = params[:location]
     public_status = params[:public] 
     categories = [params[:category1],params[:category2],params[:category3]].uniq.reject(&:nil?)
+    
+    validation = validate_ad_items(name,description,price,price,location)
 
     ad_id = get_ad_id()
     if !(params["img"].nil?)
         img_ext = File.extname(params["img"]["filename"]).downcase
         if img_ext != ".png" && img_ext != ".jpg" && img_ext != ".jpeg"
-            session[:ad_creation_feedback] = "That's not a valid file format"
+            validation = "That's not a valid file format"
             redirect('/ads/new')
         end
         img_path = "#{ad_id.to_s}#{img_ext}"
@@ -156,7 +220,6 @@ post('/ads/new') do
         img_path = nil
     end
     
-    validation = validate_ad_items(name,description,price,price,location)
     if validation.nil?
         add_new_ad(name,description,price,location,session[:user_id],public_status,img_path)
         new_ad_to_categories(ad_id,categories)
@@ -166,10 +229,17 @@ post('/ads/new') do
     redirect('/ads/new')
 end
 
+# 
+# Displays a specific ad based on the ad_id provided in the path
+# 
+# @param [Integer] 
+# 
 get('/ads/:ad_id') do
     no_auth = false
     ad_id = params["ad_id"]
     ad_data = get_from_db("*","Ads","ad_id",ad_id)[0]
+    category_data = get_all_categories(ad_id)
+    ad_data = ad_data.merge!(categories: category_data)
     review_dup = review_dup(session[:user_id],ad_data["user_id"])
     if ad_data != nil
         seller_data = get_from_db("*","Users","user_id",ad_data["user_id"])[0]
