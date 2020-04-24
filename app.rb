@@ -221,7 +221,7 @@ post('/ads/new') do
     end
     
     if validation.nil?
-        add_new_ad(name,description,price,location,session[:user_id],public_status,img_path)
+        session[:ad_creation_feedback] = add_new_ad(name,description,price,location,session[:user_id],public_status,img_path)
         new_ad_to_categories(ad_id,categories)
     else
         session[:ad_creation_feedback] = validation
@@ -232,14 +232,21 @@ end
 # 
 # Displays a specific ad based on the ad_id provided in the path
 # 
-# @param [Integer] 
+# @param [Integer] :ad_id The id of a specific ad
+# 
+# @see Model#get_from_db
+# @see Model#get_all_categories
+# @see Model#review_dup
+# @see Model#get_rating_of_user
 # 
 get('/ads/:ad_id') do
     no_auth = false
     ad_id = params["ad_id"]
     ad_data = get_from_db("*","Ads","ad_id",ad_id)[0]
     category_data = get_all_categories(ad_id)
-    ad_data = ad_data.merge!(categories: category_data)
+    if !category_data.nil?
+        ad_data.store("categories", category_data)
+    end
     review_dup = review_dup(session[:user_id],ad_data["user_id"])
     if ad_data != nil
         seller_data = get_from_db("*","Users","user_id",ad_data["user_id"])[0]
@@ -255,6 +262,12 @@ get('/ads/:ad_id') do
     slim(:"ads/show",locals:{ad_info:ad_data, seller_data:seller_data, seller_rating:seller_rating, no_auth:no_auth, review_dup:review_dup})
 end
 
+# 
+# Displays the edit page for a specific ad.
+# It also checks if you have the corret authorization to edit the ad.
+# 
+# @param [Integer] :ad_id Id of the ad thats going to be edited.
+# 
 get('/ads/:ad_id/edit') do
     ad_data = session[:edit_ad]
     no_auth = false
@@ -265,6 +278,14 @@ get('/ads/:ad_id/edit') do
     slim(:"ads/edit",locals:{ad_info:ad_data,no_auth:no_auth})
 end
 
+# 
+# Takes input from '/ads/:ad_id/edit' and validates it and updates the ad information in the database. 
+# 
+# @param [Integer] :ad_id Id of the ad thats going to be updated.
+# 
+# @see Model#validate_ad_items
+# @see Model#update_ad
+# 
 post('/ads/:ad_id/update') do
     ad_id = session[:edit_ad]["ad_id"]
     img_path = params[:old_img]
@@ -289,12 +310,24 @@ post('/ads/:ad_id/update') do
     redirect back
 end
 
+# 
+# Deletes a specified ad and its corresponding categories and pictures.
+# 
+# @see Model#delete_ad
+# 
 post('/ads/destory') do 
     ad_id = session[:edit_ad]["ad_id"]
     delete_ad(ad_id,session[:user_id],session[:rank])
     redirect('/')
 end
 
+# 
+# Takes rating input from '/ads/:ad_id' and adds it to the database.
+# 
+# @param [String] rating The inputted
+# 
+# @see Model#add_new_review
+# 
 post('/ads/review') do 
     rating = params[:rating].to_i
     user_id = session[:edit_ad]["user_id"]

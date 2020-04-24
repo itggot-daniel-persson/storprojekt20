@@ -179,9 +179,11 @@ module Model
         owner_id = get_from_db("user_id","Ads","ad_id",ad_id)[0]["user_id"]
         img_path = get_from_db("image","Ads","ad_id",ad_id)[0]["image"]
         if current_user == owner_id || rank == "admin"
+            # FIXA DELETE CASCADE
+            db.execute("PRAGMA foreign_keys = ON")
             db.execute("DELETE FROM Ads WHERE ad_id = ?", ad_id)
             db.execute("DELETE FROM Category_relation WHERE ad_id = ?",ad_id)
-            File.delete('public/img/ads_img/' + img_path) if File.exist?('public/img/ads_img/' + img_path)
+            File.delete('public/img/ads_img/' + img_path) if img_path != nil && File.exist?('public/img/ads_img/' + img_path)
             p "success"
         else
             #Ad feedback for error

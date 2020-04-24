@@ -4,6 +4,7 @@
 4. Emrik kan ändra på hidden input
 5. Fixa review duplication. Kolla så att användaren inte har gjort en review. 
 6. Lägg till så att man kan se kategorier
+7. Kanske lägga till DELETE CASCADE
 
 Lägga till
 1. Public/private ads

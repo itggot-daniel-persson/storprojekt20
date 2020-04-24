@@ -28,7 +28,7 @@
             -else
                 p Price #{ad_info["price"]}
             p = "Location: #{ad_info["location"]}"
-            P = "Categories: #{ad_info[:categories]}"
+            P = "Categories: #{ad_info["categories"]}"
         div class="user"
             h3 Sellers name
             a href="/users/show/#{seller_data["user_id"]}" #{seller_data["username"]}

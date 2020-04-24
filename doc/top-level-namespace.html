@@ -176,7 +176,9 @@ href=":username">session</a> = “Emrik” end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Displays the edit page for a specific ad.</p>
+</div></span>
   
 </li>
 
@@ -294,7 +296,10 @@ href=":username">session</a> = “Emrik” end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Takes input from &#39;/ads/:ad_id/edit&#39; and validates it and updates
+the ad information in the database.</p>
+</div></span>
   
 </li>
 
@@ -316,7 +321,9 @@ href=":username">session</a> = “Emrik” end.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Deletes a specified ad and its corresponding categories and pictures.</p>
+</div></span>
   
 </li>
 
@@ -363,7 +370,9 @@ the variables.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Takes rating input from &#39;/ads/:ad_id&#39; and adds it to the database.</p>
+</div></span>
   
 </li>
 
@@ -544,17 +553,35 @@ validates it, and then ads it to the database.</p>
   
     <li>
       
-        <span class='name'></span>
+        <span class='name'>:ad_id</span>
       
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
+        &mdash;
+        <div class='inline'>
+<p>The id of a specific ad</p>
+</div>
+      
     </li>
   
 </ul>
 
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">Model#get_from_db</a></span></li>
+    
+      <li><span class='object_link'><a href="Model.html#get_all_categories-instance_method" title="Model#get_all_categories (method)">Model#get_all_categories</a></span></li>
+    
+      <li><span class='object_link'><a href="Model.html#review_dup-instance_method" title="Model#review_dup (method)">Model#review_dup</a></span></li>
+    
+      <li><span class='object_link'><a href="Model.html#get_rating_of_user-instance_method" title="Model#get_rating_of_user (method)">Model#get_rating_of_user</a></span></li>
+    
+  </ul>
 
 
 
@@ -564,11 +591,6 @@ validates it, and then ads it to the database.</p>
       <pre class="lines">
 
 
-237
-238
-239
-240
-241
 242
 243
 244
@@ -583,17 +605,26 @@ validates it, and then ads it to the database.</p>
 253
 254
 255
-256</pre>
+256
+257
+258
+259
+260
+261
+262
+263</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 237</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 242</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ads/:ad_id</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_no_auth'>no_auth</span> <span class='op'>=</span> <span class='kw'>false</span>
     <span class='id identifier rubyid_ad_id'>ad_id</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ad_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_ad_data'>ad_data</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ads</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ad_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_category_data'>category_data</span> <span class='op'>=</span> <span class='id identifier rubyid_get_all_categories'><span class='object_link'><a href="Model.html#get_all_categories-instance_method" title="Model#get_all_categories (method)">get_all_categories</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_ad_data'>ad_data</span> <span class='op'>=</span> <span class='id identifier rubyid_ad_data'>ad_data</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='label'>categories:</span> <span class='id identifier rubyid_category_data'>category_data</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_category_data'>category_data</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='id identifier rubyid_ad_data'>ad_data</span><span class='period'>.</span><span class='id identifier rubyid_store'>store</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>categories</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_category_data'>category_data</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
     <span class='id identifier rubyid_review_dup'><span class='object_link'><a href="Model.html#review_dup-instance_method" title="Model#review_dup (method)">review_dup</a></span></span> <span class='op'>=</span> <span class='id identifier rubyid_review_dup'><span class='object_link'><a href="Model.html#review_dup-instance_method" title="Model#review_dup (method)">review_dup</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_ad_data'>ad_data</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_ad_data'>ad_data</span> <span class='op'>!=</span> <span class='kw'>nil</span>
         <span class='id identifier rubyid_seller_data'>seller_data</span> <span class='op'>=</span> <span class='id identifier rubyid_get_from_db'><span class='object_link'><a href="Model.html#get_from_db-instance_method" title="Model#get_from_db (method)">get_from_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Users</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_ad_data'>ad_data</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
@@ -622,24 +653,58 @@ validates it, and then ads it to the database.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Displays the edit page for a specific ad. It also checks if you have the
+corret authorization to edit the ad.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>:ad_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Id of the ad thats going to be edited.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-258
-259
-260
-261
-262
-263
-264
-265
-266</pre>
+271
+272
+273
+274
+275
+276
+277
+278
+279</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 258</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 271</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ads/:ad_id/edit</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_ad_data'>ad_data</span> <span class='op'>=</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:edit_ad</span><span class='rbracket'>]</span>
@@ -882,38 +947,81 @@ also retrieve fresh categories from the database</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Takes input from &#39;/ads/:ad_id/edit&#39; and validates it and updates
+the ad information in the database.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>:ad_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Id of the ad thats going to be updated.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#validate_ad_items-instance_method" title="Model#validate_ad_items (method)">Model#validate_ad_items</a></span></li>
+    
+      <li><span class='object_link'><a href="Model.html#update_ad-instance_method" title="Model#update_ad (method)">Model#update_ad</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-268
-269
-270
-271
-272
-273
-274
-275
-276
-277
-278
-279
-280
-281
-282
-283
-284
-285
-286
-287
-288
 289
-290</pre>
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 268</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 289</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ads/:ad_id/update</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_ad_id'>ad_id</span> <span class='op'>=</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:edit_ad</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ad_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
@@ -952,20 +1060,40 @@ also retrieve fresh categories from the database</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Deletes a specified ad and its corresponding categories and pictures.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#delete_ad-instance_method" title="Model#delete_ad (method)">Model#delete_ad</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-292
-293
-294
-295
-296</pre>
+318
+319
+320
+321
+322</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 292</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 318</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ads/destory</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> 
     <span class='id identifier rubyid_ad_id'>ad_id</span> <span class='op'>=</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:edit_ad</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ad_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
@@ -1215,7 +1343,7 @@ returns error message “That&#39;s not a valid file format”</p>
     <span class='kw'>end</span>
     
     <span class='kw'>if</span> <span class='id identifier rubyid_validation'>validation</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-        <span class='id identifier rubyid_add_new_ad'><span class='object_link'><a href="Model.html#add_new_ad-instance_method" title="Model#add_new_ad (method)">add_new_ad</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span><span class='id identifier rubyid_description'>description</span><span class='comma'>,</span><span class='id identifier rubyid_price'>price</span><span class='comma'>,</span><span class='id identifier rubyid_location'>location</span><span class='comma'>,</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_public_status'>public_status</span><span class='comma'>,</span><span class='id identifier rubyid_img_path'>img_path</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:ad_creation_feedback</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_add_new_ad'><span class='object_link'><a href="Model.html#add_new_ad-instance_method" title="Model#add_new_ad (method)">add_new_ad</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span><span class='id identifier rubyid_description'>description</span><span class='comma'>,</span><span class='id identifier rubyid_price'>price</span><span class='comma'>,</span><span class='id identifier rubyid_location'>location</span><span class='comma'>,</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_id</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_public_status'>public_status</span><span class='comma'>,</span><span class='id identifier rubyid_img_path'>img_path</span><span class='rparen'>)</span>
         <span class='id identifier rubyid_new_ad_to_categories'><span class='object_link'><a href="Model.html#new_ad_to_categories-instance_method" title="Model#new_ad_to_categories (method)">new_ad_to_categories</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_ad_id'>ad_id</span><span class='comma'>,</span><span class='id identifier rubyid_categories'>categories</span><span class='rparen'>)</span>
     <span class='kw'>else</span>
         <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:ad_creation_feedback</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_validation'>validation</span>
@@ -1236,23 +1364,63 @@ returns error message “That&#39;s not a valid file format”</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Takes rating input from &#39;/ads/:ad_id&#39; and adds it to the database.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>rating</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The inputted</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Model.html#add_new_review-instance_method" title="Model#add_new_review (method)">Model#add_new_review</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-298
-299
-300
-301
-302
-303
-304
-305</pre>
+331
+332
+333
+334
+335
+336
+337
+338</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 298</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 331</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ads/review</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> 
     <span class='id identifier rubyid_rating'>rating</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:rating</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
@@ -1630,7 +1798,7 @@ validates it, and then ads it to the database</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 23 20:31:55 2020 by
+  Generated on Fri Apr 24 15:16:24 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.5.1).
 </div>

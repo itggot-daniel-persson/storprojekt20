@@ -9,6 +9,10 @@ body {
     background-color: #d7e0ef;
 }
 
+p, h1, h2, h3 {
+    overflow-wrap: break-word;
+}
+
 nav {
     background-color: rgb(163, 163, 163);
     height: 50px;
