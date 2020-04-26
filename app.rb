@@ -292,6 +292,7 @@ post('/ads/:ad_id/update') do
             session[:edit_ad_feedback] = "That's not a valid file format"
             redirect back
         end
+        File.delete('public/img/ads_img/' + img_path) if img_path != nil && File.exist?('public/img/ads_img/' + img_path)
         img_path = "#{ad_id.to_s}#{img_ext}"
         File.open('public/img/ads_img/' + ad_id.to_s + img_ext.to_s , "wb") do |f|
             f.write(params['img']["tempfile"].read)

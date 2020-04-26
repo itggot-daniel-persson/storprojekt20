@@ -132,12 +132,12 @@ module Model
     #
     # Adds a new ad to the database
     #
-    # @param [String] name
-    # @param [String] description
-    # @param [Integer] price
-    # @param [String] location
-    # @param [Integer] user_id
-    # @param [String] public_status
+    # @param [String] name Ad name 
+    # @param [String] description Ad description
+    # @param [Integer] price Ad price
+    # @param [String] location Ad location
+    # @param [Integer] user_id User id of ad owner
+    # @param [String] public_status If the ad is public or not
     # @param [String] img The image path to be saved in the database
     #
     # @return [String] Returns feedback message
@@ -169,11 +169,11 @@ module Model
     end
 
     def update_ad(ad_id,image,name,desc,price,disc_price)
+
         db.execute("UPDATE Ads SET image = ?,name = ?,description = ?,price = ?,discounted_price = ? WHERE ad_id = ?",image,name,desc,price,disc_price,ad_id)
     end
 
     def delete_ad(ad_id,current_user,rank)
-        #Is user ad owner?
         owner_id = get_from_db("user_id","Ads","ad_id",ad_id)[0]["user_id"]
         img_path = get_from_db("image","Ads","ad_id",ad_id)[0]["image"]
         if current_user == owner_id || rank == "admin"
@@ -181,8 +181,6 @@ module Model
             # db.execute("PRAGMA foreign_keys = ON")
             db.execute("DELETE FROM Ads WHERE ad_id = ?", ad_id)
             db.execute("DELETE FROM Category_relation WHERE ad_id = ?",ad_id)
-            # Lägg till admin sak för transactions
-            # db.execute("DELETE FROM Transactions WHERE ad_id = ?",ad_id)
             File.delete('public/img/ads_img/' + img_path) if img_path != nil && File.exist?('public/img/ads_img/' + img_path)
             p "success"
         else

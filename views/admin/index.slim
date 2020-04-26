@@ -1,6 +1,6 @@
 h1 You are the page master
 h2 Here is the latest transactions
--transactions.each do |trans|
+-transactions.reverse_each do |trans|
     p = "Buyer id: #{trans["buyer_id"]}"
     p = "Bought ad: #{trans["ad_id"]}"
     p = "Time of purchase: #{Time.at(trans["time_of_purchase"])}"
