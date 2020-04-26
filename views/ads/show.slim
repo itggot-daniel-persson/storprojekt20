@@ -14,8 +14,6 @@
     form action="/ads/destory" method="post"
         button type="submit" Delete ad
 
-/ p = ad_info
-/ -elsif nsdkjandajs
 -if premission
     div class="show-page"
         div class="ad"
@@ -29,6 +27,14 @@
                 p Price #{ad_info["price"]}
             p = "Location: #{ad_info["location"]}"
             P = "Categories: #{ad_info["categories"]}"
+            -if session[:user_id] && ad_info["bought"] == "no"
+                form action="buy_item" method="post"
+                    button type="submit" Buy
+            -elsif ad_info["bought"] == "yes"
+                img id="sold" src="/img/sold-stamp.png" alt="sold" srcset=""
+            -else
+                p You need to login to buy
+
         div class="user"
             h3 Sellers name
             a href="/users/show/#{seller_data["user_id"]}" #{seller_data["username"]}

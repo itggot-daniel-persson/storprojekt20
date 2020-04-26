@@ -59,7 +59,6 @@ module Model
         return seller_rating.round(1)
     end
 
-
     #
     # Registers a user to the database
     #
@@ -72,7 +71,6 @@ module Model
     def register_user(username,password_digest,rank,email,phone)
         db.execute("INSERT INTO Users (username, password_digest, rank, email, phone) VALUES (?, ?, ?, ?, ?)", username, password_digest, rank, email, phone)
     end
-
 
     #
     # Validates registration input. For example checks it the username is between 3 and 20 characters long.
@@ -180,9 +178,11 @@ module Model
         img_path = get_from_db("image","Ads","ad_id",ad_id)[0]["image"]
         if current_user == owner_id || rank == "admin"
             # FIXA DELETE CASCADE
-            db.execute("PRAGMA foreign_keys = ON")
+            # db.execute("PRAGMA foreign_keys = ON")
             db.execute("DELETE FROM Ads WHERE ad_id = ?", ad_id)
             db.execute("DELETE FROM Category_relation WHERE ad_id = ?",ad_id)
+            # Lägg till admin sak för transactions
+            # db.execute("DELETE FROM Transactions WHERE ad_id = ?",ad_id)
             File.delete('public/img/ads_img/' + img_path) if img_path != nil && File.exist?('public/img/ads_img/' + img_path)
             p "success"
         else
@@ -223,6 +223,11 @@ module Model
                 db.execute("INSERT INTO Reviews (user_id, reviewer_id, rating) VALUES (?,?,?)", user_id, reviewer_id, rating)
             end
         end
+    end
+
+    def buy_ad(buyer_id,ad_id)
+        db.execute("UPDATE Ads SET bought = ? WHERE ad_id = ?","yes", ad_id)
+        db.execute("INSERT INTO Transactions (buyer_id, ad_id, time_of_purchase) VALUES (?,?,?)",buyer_id, ad_id, Time.now.to_i)
     end
 
     def not_auth(user_id)

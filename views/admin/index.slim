@@ -1,0 +1,16 @@
+h1 You are the page master
+h2 Here is the latest transactions
+-transactions.each do |trans|
+    p = "Buyer id: #{trans["buyer_id"]}"
+    p = "Bought ad: #{trans["ad_id"]}"
+    p = "Time of purchase: #{Time.at(trans["time_of_purchase"])}"
+    br
+
+h2 Here is all the users
+-user_info.each do |user|
+    h3 = "Username: #{user["username"]}"
+    p = "User id: #{user["user_id"]}"
+    p = "Rank: #{user["rank"]}"
+    p = "Email: #{user["email"]}"
+    p = "Phone: #{user["phone"]}"
+    br

@@ -58,7 +58,7 @@ div.wrapper a {
     position: relative;
 }
 
-a img#sold {
+img#sold {
     position: absolute;
     object-fit: cover;
     width: inherit;

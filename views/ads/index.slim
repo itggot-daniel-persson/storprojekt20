@@ -19,7 +19,5 @@ div class="wrapper"
                 h3 Price #{ad["discounted_price"]}
                 p Seller #{ad["seller"]}
                 -if ad["bought"] == "yes"
-                    img id="sold" src="/img/sold-stamp.png" alt="" srcset=""/
+                    img id="sold" src="/img/sold-stamp.png" alt="sold" srcset=""
                 p Location #{ad["location"]}
-                form action="buy_item" method="post"
-                    button type="submit" Buy

@@ -14,10 +14,6 @@ db = SQLite3::Database.new("db/database.db")
 db.results_as_hash = true
 
 before do 
-#     if session[:user_id] != nil 
-#         redirect('/')
-#     end
-
     if request.post?
         if session[:last_action].nil?
             session[:last_action] = Time.now
@@ -307,7 +303,7 @@ post('/ads/:ad_id/update') do
     else
         session[:edit_ad_feedback] = validation
     end
-    redirect back
+    redirect('/')
 end
 
 # 
@@ -337,3 +333,20 @@ post('/ads/review') do
     redirect back
 end
 
+post('/ads/buy_item') do 
+    if !not_auth(session[:user_id])
+        ad_id = session[:edit_ad]["ad_id"]
+        buyer_id = session[:user_id]
+        ad_exist = get_from_db("*","Ads","ad_id",ad_id)
+        if ad_exist
+            buy_ad(buyer_id,ad_id)
+        end
+    end
+    redirect back
+end
+
+get('/admin') do
+    transactions = get_from_db("*","Transactions",nil,nil)
+    user_info = get_from_db("*","Users",nil,nil)
+    slim(:"admin/index", locals:{transactions: transactions, user_info: user_info})
+end
