@@ -1,4 +1,5 @@
 
+# Model
 module Model
     #
     # Connects to the database
@@ -148,7 +149,7 @@ module Model
     end
 
     #
-    # Ad new a to categories
+    # Ad new ad to categories
     #
     # @param [Integer] ad_id of the ad that categories should be added to
     # @param [Integer] category_id The id of the category that's going to be connented with ad_id
@@ -159,6 +160,13 @@ module Model
         end
     end
 
+    #
+    # This function is used to get all the current categories for one ad and stitch them together to be displayed.
+    #
+    # @param [Integer] ad_id Which ad to get categories from
+    #
+    # @return [String] Retruns a string with all the ads categories
+    #
     def get_all_categories(ad_id)
         categories = db.execute("SELECT Categories.name FROM Categories INNER JOIN Category_relation ON Categories.category_id = Category_relation.category_id WHERE ad_id = ?",ad_id)
         out = ""
@@ -168,11 +176,27 @@ module Model
         return out
     end
 
+    #
+    # Updates ad with updated information
+    #
+    # @param [Integer] ad_id Ad to update
+    # @param [String] image Path to image
+    # @param [String] name Name of ad
+    # @param [String] desc Description of ad
+    # @param [String] price Updated price
+    # @param [String] disc_price Discounted price
+    #
     def update_ad(ad_id,image,name,desc,price,disc_price)
-
         db.execute("UPDATE Ads SET image = ?,name = ?,description = ?,price = ?,discounted_price = ? WHERE ad_id = ?",image,name,desc,price,disc_price,ad_id)
     end
 
+    #
+    # Checks if the user is allowed to delete the ad the proceeds to deletes the ad.
+    #
+    # @param [Integer] ad_id Ad to be deletetd
+    # @param [String] current_user Name of the current user logged in
+    # @param [String] rank If the person has admin he/she can delete ad anyway.
+    #
     def delete_ad(ad_id,current_user,rank)
         owner_id = get_from_db("user_id","Ads","ad_id",ad_id)[0]["user_id"]
         img_path = get_from_db("image","Ads","ad_id",ad_id)[0]["image"]
@@ -182,14 +206,19 @@ module Model
             db.execute("DELETE FROM Ads WHERE ad_id = ?", ad_id)
             db.execute("DELETE FROM Category_relation WHERE ad_id = ?",ad_id)
             File.delete('public/img/ads_img/' + img_path) if img_path != nil && File.exist?('public/img/ads_img/' + img_path)
-            p "success"
         else
             #Ad feedback for error
-            p "fail"
         end
 
     end
 
+    #
+    # Searches the database for spcified search value and outputs the ad results 
+    #
+    # @param [String] search_value The inputted search term to be searched
+    #
+    # @return [Hash] Returns a hash with all the ads that matched the search term
+    #
     def search(search_value)
         if search_value == ""
             results = get_from_db("*","Ads",nil,nil)
@@ -203,18 +232,37 @@ module Model
         return results
     end
 
+    #
+    # When adding photos the name of the file is supposed to be the next ad id. Therefor i need to retrieve the next id.
+    #
+    # @return [Integer] Returns the next available ad id
+    #
     def get_ad_id()
         count = db.execute("SELECT seq FROM sqlite_sequence WHERE name = 'Ads'")[0]["seq"] + 1
         return count
     end
 
+    #
+    # Checks if the user already has reviewed a specific user.
+    #
+    # @param [Integer] reviewer_id The id of the reviewer
+    # @param [Integer] user_id User id
+    #
+    # @return [Hash] Returns if it finds a duplicated review
+    #
     def review_dup(reviewer_id,user_id)
         return db.execute("SELECT user_id FROM Reviews WHERE reviewer_id = ? AND user_id = ?",reviewer_id,user_id)
     end
 
+    #
+    # Adds a new review to the database
+    #
+    # @param [Integer] user_id User id of the seller to be reviewed
+    # @param [Integer] reviewer_id The reviewer id
+    # @param [Integer] rating Rating
+    #
     def add_new_review(user_id,reviewer_id,rating)
         dup_check = review_dup(reviewer_id,user_id)
-        #Fixa så error visas på slim
         if dup_check.empty?
             if rating.between?(0, 5)
                 puts "Success"
@@ -223,11 +271,24 @@ module Model
         end
     end
 
+    #
+    # Sets the ad status to bought and adds a entry to Transactions in the database
+    #
+    # @param [Integer] buyer_id The person who buys the product
+    # @param [Integer] ad_id Ad id
+    #
     def buy_ad(buyer_id,ad_id)
         db.execute("UPDATE Ads SET bought = ? WHERE ad_id = ?","yes", ad_id)
         db.execute("INSERT INTO Transactions (buyer_id, ad_id, time_of_purchase) VALUES (?,?,?)",buyer_id, ad_id, Time.now.to_i)
     end
 
+    #
+    # Checks if user is authenticated
+    #
+    # @param [Integer] user_id User id to verify
+    #
+    # @return [Boolean] Returns true or false
+    #
     def not_auth(user_id)
         if user_id == nil
             return true

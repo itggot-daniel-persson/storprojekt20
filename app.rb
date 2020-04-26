@@ -334,6 +334,12 @@ post('/ads/review') do
     redirect back
 end
 
+# 
+# When you press buy the program checks if the ad is still available and buys the ad.
+# 
+# @see Model#get_from_db
+# @see Model#buy_ad
+# 
 post('/ads/buy_item') do 
     if !not_auth(session[:user_id])
         ad_id = session[:edit_ad]["ad_id"]
@@ -346,6 +352,11 @@ post('/ads/buy_item') do
     redirect back
 end
 
+# 
+# Shows the admin page where you can look at the latest transactions and see all the users
+# 
+# @see Model#get_from_db
+# 
 get('/admin') do
     transactions = get_from_db("*","Transactions",nil,nil)
     user_info = get_from_db("*","Users",nil,nil)
