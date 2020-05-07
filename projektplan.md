@@ -13,6 +13,7 @@ Skiss på en enstaka ad
 ![ER-diagram](misc/ER-Diagram.png)
 ## 4. Arkitektur
 Mappar:
+
 public - Innehåller alla publika filer
 * js 
 * img - Innehåller en undermapp med alla annons bilder
@@ -25,6 +26,7 @@ views - Innehåller alla restful routes slim filer
 * users - Innehåller slim filer för användar relaterade händelser
 
 Filer:
+
 app.rb - Huvuddelen i projektet där alla routes finns
 
 model.rb - Inehåller alla databas förfrågningar + validering av information
