@@ -10,8 +10,14 @@ Skiss på landingpage
 Skiss på en enstaka ad
 ![Skiss på annons](https://i.imgur.com/YjhzG6k.png)
 ## 3. Databas med ER-diagram (Bild)
-![ER](https://github.com/itggot-daniel-persson/storprojekt20/blob/master/ER-Diagram.png?raw=true)
+![ER-diagram](https://github.com/itggot-daniel-persson/storprojekt20/blob/master/ER-Diagram.png?raw=true)
 ## 4. Arkitektur (Beskriv filer och mappar - vad gör/inehåller de?)
 Mappar
-* public
-** a
+
+public. Innehåller alla publika filer
+* js 
+* img. Innehåller en undermapp med alla annons bilder
+  * ads_img
+* css. Innehåller stilarket av sidan
+views. Innehåller alla restful routes slim filer
+  * a
