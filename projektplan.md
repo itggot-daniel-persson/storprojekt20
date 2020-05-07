@@ -12,7 +12,7 @@ Skiss på en enstaka ad
 ## 3. Databas med ER-diagram 
 ![ER-diagram](misc/ER-Diagram.png)
 ## 4. Arkitektur
-Mappar:
+__Mappar:__
 
 public - Innehåller alla publika filer
 * js 
@@ -25,7 +25,7 @@ views - Innehåller alla restful routes slim filer
 * ads - Innehåller slim filer för annons relaterade händelser
 * users - Innehåller slim filer för användar relaterade händelser
 
-Filer:
+__Filer:__
 
 app.rb - Huvuddelen i projektet där alla routes finns
 
