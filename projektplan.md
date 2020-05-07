@@ -5,7 +5,7 @@
 * De ska kunna kolla på specifika annonser samt ge säljaren ett betyg från 0 till 5
 ## 2. Vyer (visa bildskisser på dina sidor)
 Skiss på landingpage
-![Skiss framsida](https://i.imgur.com/I6jGW0l.png | width=200)
+![Skiss framsida](https://i.imgur.com/I6jGW0l.png){:width="150px"}
 
 Skiss på en enstaka ad
 ![Skiss på annons](https://i.imgur.com/YjhzG6k.png | width=200)
