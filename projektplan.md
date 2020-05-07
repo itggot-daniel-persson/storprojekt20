@@ -10,7 +10,7 @@ Skiss på landingpage
 Skiss på en enstaka ad
 ![Skiss på annons](https://i.imgur.com/YjhzG6k.png)
 ## 3. Databas med ER-diagram 
-![ER-diagram](https://github.com/itggot-daniel-persson/storprojekt20/blob/master/ER-Diagram.png?raw=true)
+![ER-diagram](misc/ER-Diagram.png)
 ## 4. Arkitektur
 Mappar:
 public - Innehåller alla publika filer
