@@ -4,10 +4,10 @@
 * På sidan ska användare lägga upp annonser på varor som de säljer.
 * De ska kunna kolla på specifika annonser samt ge säljaren ett betyg från 0 till 5
 ## 2. Vyer
-__Skiss på landingpage__
+###Skiss på landingpage
 ![Skiss framsida](https://i.imgur.com/I6jGW0l.png)
 
-__Skiss på en enstaka ad__
+###Skiss på en enstaka ad
 ![Skiss på annons](https://i.imgur.com/YjhzG6k.png)
 ## 3. Databas med ER-diagram 
 ![ER-diagram](misc/ER-Diagram.png)
