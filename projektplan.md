@@ -26,6 +26,7 @@ views - Innehåller alla restful routes slim filer
 
 Filer:
 app.rb - Huvuddelen i projektet där alla routes finns
+
 model.rb - Inehåller alla databas förfrågningar + validering av information
 
 ## 5. Resultat
