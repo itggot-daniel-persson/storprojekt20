@@ -12,12 +12,18 @@ Skiss på en enstaka ad
 ## 3. Databas med ER-diagram (Bild)
 ![ER-diagram](https://github.com/itggot-daniel-persson/storprojekt20/blob/master/ER-Diagram.png?raw=true)
 ## 4. Arkitektur (Beskriv filer och mappar - vad gör/inehåller de?)
-Mappar
-
-public. Innehåller alla publika filer
+Mappar:
+public - Innehåller alla publika filer
 * js 
-* img. Innehåller en undermapp med alla annons bilder
+* img - Innehåller en undermapp med alla annons bilder
   * ads_img
-* css. Innehåller stilarket av sidan
-views. Innehåller alla restful routes slim filer
-  * a
+* css - Innehåller stilarket av sidan
+
+views - Innehåller alla restful routes slim filer
+* admin - Innehåller slim filer för admin relaterade händelser
+* ads - Innehåller slim filer för annons relaterade händelser
+* users - Innehåller slim filer för användar relaterade händelser
+
+Filer:
+app.rb - Huvuddelen i projektet där alla routes finns
+model.rb - Inehåller alla databas förfrågningar + validering av information
